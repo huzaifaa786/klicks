@@ -16,5 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layout.index');
 });
-
-Route::view('login/login','login.login')->name('login.login');
