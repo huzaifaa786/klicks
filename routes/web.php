@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\admincontroller;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\MallController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +18,36 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout.index');
+    return view('welcome');
 });
+Route::view('admin/das','admin.layout')->name('login.lo');
+Route::view('admin/login','admin.login')->name('admin/login');
+Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin/logout');
+// //////////////////////admin///////////
+// Route::post('admine/dashboard', 'App\Http\Controllers\AdminController@postLogin')->name('admine-login');
+Route::post('admin/dashboard', [AdminController::class, 'login'])->name('admin-login');
+Route::group(['middleware' => ['auth:admin']], function(){
+Route::view('admin/layout','admin.layout')->name('admin/layout');
+Route::view('admin/city/create','admin.city.create')->name('admin/city');
+Route::post('admin/add/city', [CityController::class, 'store'])->name('admine-city');
+Route::view('admin/mall/create','admin.Mall.create')->name('admin/mall');
+Route::get('admin/show/city', [CityController::class, 'show'])->name('show-city');
+Route::post('admin/save/city', [MallController::class, 'store'])->name('save-mall');
+Route::get('admin/show/mall', [MallController::class, 'show'])->name('show-mall');
+Route::get('admin/mall', [MallController::class, 'shows'])->name('all-mall');
+Route::post('admin/add/company', [CompanyController::class, 'store'])->name('admine-company');
+Route::get('admin/all/company', [CompanyController::class, 'show'])->name('all-company');
+Route::get('admin/all/city', [CityController::class, 'shows'])->name('all-city');
+Route::get('admin/delete/company/{id}', [CompanyController::class, 'delete'])->name('delete/company');
+Route::get('admin/delete/mall/{id}', [MallController::class, 'delete'])->name('delete/mall');
+Route::get('admin/delete/city/{id}', [CityController::class, 'delete'])->name('delete/city');
+Route::post('admin/edit/city/{id}', [CityController::class, 'update'])->name('edit-city');
+Route::post('admin/edit/mall/{id}', [MallController::class, 'update'])->name('edit-mall');
+Route::post('admin/edit/company/{id}', [CompanyController::class, 'update'])->name('edit-company');
+Route::view('admin/dashboard','admin.dashboard')->name('login.dashboard');
+//////////////////
+Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
+Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');
+Route::post('company/city', [CompanyController::class, 'showss'])->name('company/city');
 
-Route::view('login/login','login.login')->name('login.login');
+});
