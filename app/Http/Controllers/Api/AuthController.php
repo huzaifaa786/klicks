@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         if (Auth::guard('user')->attempt($credentials)) {
             $user = User::find(Auth::guard('user')->user()->id);
-            // $user->account;
+            $user->account;
             return Api::setResponse('user', $user->withToken());
         } else {
             return Api::setError('Invalid credentials');
