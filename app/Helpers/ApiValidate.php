@@ -24,7 +24,7 @@ class ApiValidate{
 
     public static function register($request, $model){
 
-        $validator = Validator::make($request->all(),$model::RiderRegisterRules());
+        $validator = Validator::make($request->all(),$model::UserRegisterRules());
         if($validator->fails()){
             throw new HttpResponseException(Api::failed($validator));
         }

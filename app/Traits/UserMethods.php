@@ -19,11 +19,11 @@ trait UserMethods
         ];
     }
 
-    public static function RiderRegisterRules()
+    public static function UserRegisterRules()
     {
         return [
             'name' => 'max:255|required',
-            'email' => 'email|required|unique:riders',
+            'email' => 'email|required|unique:users',
             'password' => 'min:6|required',
             'phone' => 'numeric|required',
         ];

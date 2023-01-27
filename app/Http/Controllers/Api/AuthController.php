@@ -18,9 +18,8 @@ class AuthController extends Controller
          $credentials = ApiValidate::login($request, User::class);
         // $credentials = $request->only('email', 'password');
 
-        if (Auth::guard('user')->attempt($credentials)) {
-            $user = User::find(Auth::guard('user')->user()->id);
-            $user->account;
+        if (Auth::guard('web')->attempt($credentials)) {
+            $user = User::find(Auth::guard('web')->user()->id);
             return Api::setResponse('user', $user->withToken());
         } else {
             return Api::setError('Invalid credentials');
@@ -29,12 +28,8 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $user = User::create([
-            'password' => Hash::make($request->password),
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' =>$request->phone,
-        ]);
-        return Api::setResponse('user', $user);
+        $credentials = ApiValidate::register($request, User::class);
+        $user = User::find(User::create($credentials)->id);
+        return Api::setResponse('user', $user->withToken());
     }
 }
