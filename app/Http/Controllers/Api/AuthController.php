@@ -25,10 +25,11 @@ class AuthController extends Controller
         }
     }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
 
 
-        User::create(['password' => Hash::make($request->password)]+$request->all());
-        return redirect()->back();
+        $user = User::create(['password' => Hash::make($request->password)] + $request->all());
+        return Api::setResponse('user', $user);
     }
 }
