@@ -14,12 +14,12 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = ApiValidate::login($request, Rider::class);
+        $credentials = ApiValidate::login($request, User::class);
 
         if (Auth::guard('user')->attempt($credentials)) {
-            $rider = User::find(Auth::guard('rider')->user()->id);
-            $rider->account;
-            return Api::setResponse('rider', $rider->withToken());
+            $user = User::find(Auth::guard('user')->user()->id);
+            $user->account;
+            return Api::setResponse('user', $user->withToken());
         } else {
             return Api::setError('Invalid credentials');
         }
@@ -30,6 +30,7 @@ class AuthController extends Controller
 
 
         $user = User::create(['password' => Hash::make($request->password)] + $request->all());
-        return Api::setResponse('user', $user);
+        // return Api::setResponse('user', $user);
+        return redirect()->back();
     }
 }

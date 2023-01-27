@@ -22,6 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
 
     Route::any('register', [AuthController::class, 'register']);
-    Route::any('login', 'AuthController@login');
+    Route::any('login', [AuthController::class, 'login']);
 
 });
