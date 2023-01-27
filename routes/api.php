@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
 
     Route::any('register', [AuthController::class, 'register']);
     Route::any('login', [AuthController::class, 'login']);
+
+
+    Route::any('city/all', [CityController::class, 'city/all']);
 
 });
