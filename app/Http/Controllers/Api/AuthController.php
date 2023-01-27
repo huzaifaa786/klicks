@@ -14,11 +14,13 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = ApiValidate::login($request, User::class);
+        dd($request);
+        // $credentials = ApiValidate::login($request, User::class);
+        $credentials = $request->only('email', 'password');
 
         if (Auth::guard('user')->attempt($credentials)) {
             $user = User::find(Auth::guard('user')->user()->id);
-            $user->account;
+            // $user->account;
             return Api::setResponse('user', $user->withToken());
         } else {
             return Api::setError('Invalid credentials');
