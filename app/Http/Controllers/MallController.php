@@ -18,13 +18,13 @@ class MallController extends Controller
     {
 
         $data = Mall::all();
-        return view('admin.Mall.showmall', ['malls' => $data]);
+        return view('Admin.Mall.showmall', ['malls' => $data]);
     }
     public function shows()
     {
 
         $data = Mall::all();
-        return view('admin.company.create', ['malls' => $data]);
+        return view('Admin.company.create', ['malls' => $data]);
     }
     public function delete($id)
     {

@@ -16,7 +16,7 @@ class CompanyController extends Controller
      public function show(){
 
         $data= Company::all();
-        return view('admin.Company.companylist',['companys'=>$data]);
+        return view('Admin.Company.companylist',['companys'=>$data]);
 
 
 }
