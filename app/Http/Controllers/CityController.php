@@ -16,7 +16,7 @@ class CityController extends Controller
     {
 
         $data = City::all();
-        return view('Admin.mall.create', ['citys' => $data]);
+        return view('Admin.Mall.create', ['citys' => $data]);
     }
     public function shows()
     {
