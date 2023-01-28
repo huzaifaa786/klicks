@@ -25,9 +25,9 @@ Route::view('admin/login','admin.login')->name('admin/login');
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin/logout');
 // //////////////////////admin///////////
 // Route::post('admine/dashboard', 'App\Http\Controllers\AdminController@postLogin')->name('admine-login');
-Route::post('admin/dashboard', [AdminController::class, 'login'])->name('admin-login');
+Route::post('admin/postlogin', [AdminController::class, 'login'])->name('admin-login');
 Route::group(['middleware' => ['auth:admin']], function(){
-Route::view('admin/layout','Admin.layout')->name('admin/layout');
+Route::view('admin/layout','admin.layout')->name('admin/layout');
 Route::view('admin/city/create','admin.city.create')->name('admin/city');
 Route::post('admin/add/city', [CityController::class, 'store'])->name('admine-city');
 Route::view('admin/mall/create','admin.Mall.create')->name('admin/mall');
