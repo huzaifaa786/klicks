@@ -24,7 +24,7 @@ class MallController extends Controller
     {
 
         $data = Mall::all();
-        return view('Admin.company.create', ['malls' => $data]);
+        return view('Admin.Company.create', ['malls' => $data]);
     }
     public function delete($id)
     {
