@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admincontroller;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MallController;
