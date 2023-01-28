@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('admin/das','Admin.layout')->name('login.lo');
-Route::view('admin/login','Admin.login')->name('admin/login');
+Route::view('admin/das','admin.layout')->name('login.lo');
+Route::view('admin/login','admin.login')->name('admin/login');
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin/logout');
 // //////////////////////admin///////////
 // Route::post('admine/dashboard', 'App\Http\Controllers\AdminController@postLogin')->name('admine-login');
@@ -44,7 +44,7 @@ Route::get('admin/delete/city/{id}', [CityController::class, 'delete'])->name('d
 Route::post('admin/edit/city/{id}', [CityController::class, 'update'])->name('edit-city');
 Route::post('admin/edit/mall/{id}', [MallController::class, 'update'])->name('edit-mall');
 Route::post('admin/edit/company/{id}', [CompanyController::class, 'update'])->name('edit-company');
-Route::view('admin/dashboard','Admin.dashboard')->name('login.dashboard');
+Route::view('admin/dashboard','admin.dashboard')->name('login.dashboard');
 //////////////////
 Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
 Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');

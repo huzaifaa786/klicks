@@ -16,13 +16,13 @@ class CityController extends Controller
     {
 
         $data = City::all();
-        return view('Admin.mall.create', ['citys' => $data]);
+        return view('admin.mall.create', ['citys' => $data]);
     }
     public function shows()
     {
 
         $data = City::all();
-        return view('Admin.city.create', ['citys' => $data]);
+        return view('admin.city.create', ['citys' => $data]);
     }
     public function delete($id)
     {
