@@ -12,7 +12,7 @@ class City extends Model
 
     public function mall()
     {
-      return $this->hasMany(mall::class);
+      return $this->hasMany(Mall::class);
     }
     public static function  name(){
         return (new static)::where('name')->get();
