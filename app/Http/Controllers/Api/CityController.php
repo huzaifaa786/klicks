@@ -15,7 +15,7 @@ class CityController extends Controller
 
 
         $data = City::all();
-        return Api::setResponse('city', $data);
+        return Api::setResponse('cities', $data);
     }
     public function shows($id)
     {
