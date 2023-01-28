@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Http\Controllers\admincontroller;
-use App\Models\admin;
+use App\Models\Admin;
 use App\Models\admine;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

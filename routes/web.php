@@ -27,7 +27,7 @@ Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin/logo
 // Route::post('admine/dashboard', 'App\Http\Controllers\AdminController@postLogin')->name('admine-login');
 Route::post('admin/dashboard', [AdminController::class, 'login'])->name('admin-login');
 Route::group(['middleware' => ['auth:admin']], function(){
-Route::view('admin/layout','admin.layout')->name('admin/layout');
+Route::view('admin/layout','Admin.layout')->name('admin/layout');
 Route::view('admin/city/create','admin.city.create')->name('admin/city');
 Route::post('admin/add/city', [CityController::class, 'store'])->name('admine-city');
 Route::view('admin/mall/create','admin.Mall.create')->name('admin/mall');
@@ -44,7 +44,7 @@ Route::get('admin/delete/city/{id}', [CityController::class, 'delete'])->name('d
 Route::post('admin/edit/city/{id}', [CityController::class, 'update'])->name('edit-city');
 Route::post('admin/edit/mall/{id}', [MallController::class, 'update'])->name('edit-mall');
 Route::post('admin/edit/company/{id}', [CompanyController::class, 'update'])->name('edit-company');
-Route::view('admin/dashboard','admin.dashboard')->name('login.dashboard');
+Route::view('admin/dashboard','Admin.dashboard')->name('login.dashboard');
 //////////////////
 Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
 Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');
