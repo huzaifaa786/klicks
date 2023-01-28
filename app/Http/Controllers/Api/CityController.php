@@ -11,6 +11,7 @@ class CityController extends Controller
 {
     public function show()
     {
+        dd('ggg');
 
         $data = City::all();
         return Api::setResponse('city', $data);
