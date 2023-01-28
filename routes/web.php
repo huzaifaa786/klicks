@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('admin/das','admin.layout')->name('login.lo');
-Route::view('admin/login','admin.login')->name('admin/login');
+Route::view('admin/das','Admin.layout')->name('login.lo');
+Route::view('admin/login','Admin.login')->name('admin/login');
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin/logout');
 // //////////////////////admin///////////
 // Route::post('admine/dashboard', 'App\Http\Controllers\AdminController@postLogin')->name('admine-login');
