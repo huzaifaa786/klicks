@@ -19,7 +19,7 @@ class CityController extends Controller
     }
     public function shows(Request $request)
     {
-dd('gdfg');
+
 
         $data = Mall::find($request-> id);
         return Api::setResponse('malls', $data);
