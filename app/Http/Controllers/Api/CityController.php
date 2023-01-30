@@ -17,12 +17,12 @@ class CityController extends Controller
         $data = City::all();
         return Api::setResponse('cities', $data);
     }
-    public function shows($id)
+    public function shows(Request $request)
     {
 dd('gdfg');
 
-        $data = Mall::find($id);
-        return Api::setResponse('mall', $data);
+        $data = Mall::find($request-> id);
+        return Api::setResponse('malls', $data);
     }
 
 }
