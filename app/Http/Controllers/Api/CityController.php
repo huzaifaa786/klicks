@@ -10,18 +10,14 @@ use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
-    public function show()
+    public function allCities()
     {
-
-
         $data = City::all();
         return Api::setResponse('cities', $data);
     }
-    public function shows(Request $request)
+    public function cityMalls(Request $request)
     {
-
-
-        $data = Mall::find($request-> id);
+        $data = Mall::where('city_id',$request->city_id)->get();
         return Api::setResponse('malls', $data);
     }
 
