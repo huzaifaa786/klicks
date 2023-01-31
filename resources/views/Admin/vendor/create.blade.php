@@ -18,6 +18,10 @@
             <input type="text" class="form-control" id="email" name="email">
           </div>
           <div class="col-12">
+            <label for="inputNanme4" class="form-label">vendor Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone">
+          </div>
+          <div class="col-12">
             <label for="inputNanme4" class="form-label">vendor password</label>
             <input type="text" class="form-control" id="password" name="password">
           </div>
