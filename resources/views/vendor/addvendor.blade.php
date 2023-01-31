@@ -7,7 +7,7 @@
       <h5 class="card-title">Add City</h5>
 
       <!-- Vertical Form -->
-      <form class="row g-3"  method="POST"  action="{{route('admine-city')}}">
+      <form class="row g-3"  method="POST"  action="{{route('save/vendor')}}">
         @csrf
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Vendor Name</label>
