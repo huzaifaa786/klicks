@@ -28,5 +28,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
 
     Route::any('city/all', [CityController::class, 'allCities']);
     Route::any('city/malls', [CityController::class, 'cityMalls']);
+      Route::any('place/order', [OrderController::class, 'order']);
 
 });

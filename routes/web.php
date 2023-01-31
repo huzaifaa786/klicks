@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MallController;
+use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,5 +50,6 @@ Route::view('admin/dashboard','Admin.dashboard')->name('login.dashboard');
 Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
 Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');
 Route::post('company/city', [CompanyController::class, 'showss'])->name('company/city');
+Route::post('admin/save/vendor', [VendorController::class, 'store'])->name('save/vendor');
 
 });
