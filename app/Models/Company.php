@@ -16,6 +16,7 @@ class Company extends Authenticatable
         'phone',
         'email',
         'password',
+        'api_token'
     ];
     protected $hidden = [
         'password',
