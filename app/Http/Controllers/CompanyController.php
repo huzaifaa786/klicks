@@ -13,7 +13,7 @@ class CompanyController extends Controller
 {
     public function store(Request $request)
     {
-        Company::create(['password' => Hash::make($request->password),'api_token'=>Str::random(60)] + $request->all());
+        Company::create(['password' => $request->password,'api_token'=>Str::random(60)] + $request->all());
         return redirect()->back();
     }
     public function show()

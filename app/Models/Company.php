@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Helpers\ImageHelper;
+use App\Traits\UserMethods;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Company extends Authenticatable
 {
-    use HasFactory;
+    use UserMethods, HasFactory;
     protected $fillable = [
         'mall_id', 'name', 'image', 'address',   'username',
         'phone',
