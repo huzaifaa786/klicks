@@ -33,6 +33,23 @@
             <label for="inputEmail4" class="form-label">Company Address</label>
             <input type="text" name="address" class="form-control" id="mall">
           </div>
+          <div class="col-12">
+            <label for="inputNanme4" class="form-label">Vendor Name</label>
+            <input type="text" class="form-control" id="name" name="username">
+          </div>
+          <div class="col-12">
+              <label for="inputNanme4" class="form-label">vendor Email</label>
+              <input type="text" class="form-control" id="email" name="email">
+            </div>
+            <div class="col-12">
+              <label for="inputNanme4" class="form-label">vendor Phone</label>
+              <input type="text" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="col-12">
+              <label for="inputNanme4" class="form-label">vendor password</label>
+              <input type="text" class="form-control" id="password" name="password">
+            </div>
+
 
         <div class="d-flex  justify-content-end">
             <button type="reset" class="btn btn-secondary m-1">Cancel</button>

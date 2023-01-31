@@ -5,41 +5,41 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Mall;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CompanyController extends Controller
 {
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+        Company::create(['password' => Hash::make($request->password)] + $request->all());
+        return redirect()->back();
+    }
+    public function show()
+    {
 
-        Company ::create($request->all());
-         return redirect()->back();
-     }
-     public function show(){
+        $data = Company::all();
+        return view('Admin.Company.companylist', ['companys' => $data]);
+    }
+    public function delete($id)
+    {
 
-        $data= Company::all();
-        return view('Admin.Company.companylist',['companys'=>$data]);
+        $product = Company::find($id);
 
+        $product->delete();
+        // toastr()->success('Delete successfully ');
+        return redirect()->back();
+    }
+    public function update(Request $request, $id)
+    {
 
-}
-public function delete($id)
-{
+        // dd($id,$request->all());
+        $company = Company::find($id);
 
-    $product = Company::find($id);
-
-    $product->delete();
-    // toastr()->success('Delete successfully ');
-    return redirect()->back();
-}
-public function update(Request $request, $id)
-{
-
-    // dd($id,$request->all());
-    $company = Company::find($id);
-
-    $company->update($request->all());
-    // toastr()->success('update successfully ');
-    return redirect()->back();
-}
-public function showss(Request $request)
+        $company->update($request->all());
+        // toastr()->success('update successfully ');
+        return redirect()->back();
+    }
+    public function showss(Request $request)
     {
 
         $company = Company::where('mall_id', $request->id)->get();

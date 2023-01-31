@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Add City</h5>
+      <h5 class="card-title">Add Vendor</h5>
 
       <!-- Vertical Form -->
       <form class="row g-3"  method="POST"  action="{{route('save/vendor')}}">
