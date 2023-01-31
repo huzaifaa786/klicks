@@ -324,7 +324,7 @@
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('save/vendor')}}">
+                        <a href="{{route('admin/vendor')}}">
                             <i class="bi bi-circle"></i><span>Add vendor</span>
                         </a>
                     </li>

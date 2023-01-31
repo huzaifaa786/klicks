@@ -51,5 +51,5 @@ Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
 Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');
 Route::post('company/city', [CompanyController::class, 'showss'])->name('company/city');
 Route::post('admin/save/vendor', [VendorController::class, 'store'])->name('save/vendor');
-
+Route::view('admin/view/vendor','Admin.vendor.create')->name('admin/vendor');
 });
