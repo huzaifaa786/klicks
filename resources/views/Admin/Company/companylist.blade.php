@@ -14,6 +14,7 @@
                         <th scope="col">Company Name</th>
                         <th scope="col">Company logo</th>
                         <th scope="col">Company Address</th>
+                        
                         <th scope="col">Action</th>
                         <th scope="col">Action</th>
                     </tr>

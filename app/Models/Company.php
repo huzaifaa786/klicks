@@ -5,8 +5,10 @@ namespace App\Models;
 use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Company extends Model
+class Company extends Authenticatable
 {
     use HasFactory;
     protected $fillable = [
@@ -15,6 +17,12 @@ class Company extends Model
         'email',
         'password',
     ];
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'api_token'
+    ];
+
 
     public function setImageAttribute($value)
     {
