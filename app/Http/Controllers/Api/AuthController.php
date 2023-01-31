@@ -35,7 +35,7 @@ class AuthController extends Controller
     }
 
 
-    public function companyLogin(Request $request)
+    public function companylogin(Request $request)
     {
         dd('sfs');
 
@@ -43,8 +43,8 @@ class AuthController extends Controller
         // $credentials = $request->only('email', 'password');
 
         if (Auth::guard('company')->attempt($credentials)) {
-            $comoany = Company::find(Auth::guard('company')->user()->id);
-            return Api::setResponse('company', $comoany->withToken());
+            $company = Company::find(Auth::guard('company')->user()->id);
+            return Api::setResponse('company', $company->withToken());
         } else {
             return Api::setError('Invalid credentials');
         }
