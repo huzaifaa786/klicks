@@ -37,6 +37,7 @@ class AuthController extends Controller
 
     public function companyLogin(Request $request)
     {
+        dd('sfs');
 
          $credentials = ApiValidate::login($request, User::class);
         // $credentials = $request->only('email', 'password');
