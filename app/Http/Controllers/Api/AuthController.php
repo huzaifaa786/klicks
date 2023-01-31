@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\Api;
 use App\Helpers\ApiValidate;
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,5 +32,20 @@ class AuthController extends Controller
         $credentials = ApiValidate::register($request, User::class);
         $user = User::find(User::create($credentials)->id);
         return Api::setResponse('user', $user->withToken());
+    }
+
+
+    public function companyLogin(Request $request)
+    {
+
+         $credentials = ApiValidate::login($request, User::class);
+        // $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('company')->attempt($credentials)) {
+            $comoany = Company::find(Auth::guard('company')->user()->id);
+            return Api::setResponse('company', $comoany->withToken());
+        } else {
+            return Api::setError('Invalid credentials');
+        }
     }
 }

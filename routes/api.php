@@ -24,7 +24,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
 
     Route::any('register', [AuthController::class, 'register']);
     Route::any('login', [AuthController::class, 'login']);
-
+    Route::any('companyLogin', [AuthController::class, 'companyLogin']);
 
     Route::any('city/all', [CityController::class, 'allCities']);
     Route::any('city/malls', [CityController::class, 'cityMalls']);
