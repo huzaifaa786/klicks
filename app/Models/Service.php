@@ -10,7 +10,8 @@ class Service extends Model
 {
     use HasFactory;
     protected $fillable = [
-         'service_name', 'image', 'price', 
+        'company_id',
+         'service_name', 'image', 'price',
 
         'api_token'
     ];
@@ -20,5 +21,8 @@ class Service extends Model
     public function setImageAttribute($value)
     {
         $this->attributes['image'] = ImageHelper::saveImage($value, 'images');
+    }
+    public function company(){
+        return $this->belongsTo(Company::class);
     }
 }
