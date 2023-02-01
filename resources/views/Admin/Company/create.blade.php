@@ -50,11 +50,11 @@
               <input type="text" class="form-control" id="password" name="password">
             </div>
               <div class="col-12">
-              <label for="inputNanme4" class="form-label">Suv Price</label>
+              <label for="inputNanme4" class="form-label">Suv Charges</label>
               <input type="text" class="form-control" id="suv price" name="suv_price">
             </div>
               <div class="col-12">
-              <label for="inputNanme4" class="form-label">Seden price</label>
+              <label for="inputNanme4" class="form-label">Sedan charges</label>
               <input type="text" class="form-control" id="sedan price" name="sedan_price">
             </div>
 
