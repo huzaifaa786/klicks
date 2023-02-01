@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone');
+            $table->string('suv_price');
+            $table->string('sedan_price');
             $table->string('api_token');
 
 

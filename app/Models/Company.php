@@ -17,6 +17,8 @@ class Company extends Authenticatable
         'phone',
         'email',
         'password',
+        'suv_price',
+        'sedan_price',
         'api_token'
     ];
     protected $hidden = [

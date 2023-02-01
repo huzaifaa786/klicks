@@ -49,6 +49,14 @@
               <label for="inputNanme4" class="form-label">vendor password</label>
               <input type="text" class="form-control" id="password" name="password">
             </div>
+              <div class="col-12">
+              <label for="inputNanme4" class="form-label">Suv Price</label>
+              <input type="text" class="form-control" id="suv price" name="suv_price">
+            </div>
+              <div class="col-12">
+              <label for="inputNanme4" class="form-label">Seden price</label>
+              <input type="text" class="form-control" id="sedan price" name="sedan_price">
+            </div>
 
 
         <div class="d-flex  justify-content-end">

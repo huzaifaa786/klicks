@@ -19,13 +19,7 @@ class OrderController extends Controller
         if ($request->extras) {
             foreach ($request->extras as $key => $extra) {
 
-                Extra::create([
-                    'oil change' => $request->oil_change[$key],
-                    'tyre service' => $request->tyre_service[$key],
-                    'engine servie' => $request->engine_service[$key],
-                    'internal wash' => $request->internal_wash[$key],
-
-                ]);
+           
             }
         } else {
 

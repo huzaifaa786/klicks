@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +30,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::any('city/all', [CityController::class, 'allCities']);
     Route::any('city/malls', [CityController::class, 'cityMalls']);
       Route::any('place/order', [OrderController::class, 'order']);
+      Route::any('Extra/service', [ServiceController::class, 'store']);
 
 });
