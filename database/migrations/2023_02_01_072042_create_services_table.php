@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('sevice_name');
             $table->string('image');
             $table->string('price');
-            $table->string('api_token');
+            
             $table->timestamps();
         });
     }

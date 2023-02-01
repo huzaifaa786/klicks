@@ -13,7 +13,7 @@ class Service extends Model
         'company_id',
          'service_name', 'image', 'price',
 
-        'api_token'
+        
     ];
 
 
