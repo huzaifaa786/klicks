@@ -14,4 +14,11 @@ class ServiceController extends Controller
       $data=  Service::create($request->all());
         return Api::setResponse('services', $data);
     }
+
+    public function show(Request $request)
+    {
+        $data = Service::where('company_id',$request->company_id)->get();
+        return Api::setResponse('services', $data);
+    }
+
 }
