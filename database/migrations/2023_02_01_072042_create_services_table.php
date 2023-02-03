@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('company_id');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-            $table->string('sevice_name');
+            $table->string('service_name');
             $table->string('image');
             $table->string('price');
-            
+
             $table->timestamps();
         });
     }
