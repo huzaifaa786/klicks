@@ -38,6 +38,6 @@ class Company extends Authenticatable
     }
     public function services()
     {
-      return $this->hasMany(Service::class);
+      return $this->hasMany(Service::class,'company_id','id');
 }
 }
