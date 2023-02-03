@@ -13,14 +13,14 @@ class Service extends Model
         'company_id',
          'service_name', 'image', 'price',
 
-        
+
     ];
 
 
 
     public function setImageAttribute($value)
     {
-        $this->attributes['image'] = ImageHelper::saveImage($value, 'images');
+        $this->attributes['image'] = ImageHelper::saveImageFromApi($value, 'images');
     }
     public function company(){
         return $this->belongsTo(Company::class);
