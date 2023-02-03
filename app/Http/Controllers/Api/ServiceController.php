@@ -18,6 +18,7 @@ class ServiceController extends Controller
 
     public function show(Request $request)
     {
+    
         $company =Company::find($request->id);
 
         $data = $company->services;
