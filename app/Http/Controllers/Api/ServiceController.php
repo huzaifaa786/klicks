@@ -12,17 +12,24 @@ class ServiceController extends Controller
 {
     public function store(Request $request)
     {
-      $data=  Service::create($request->all());
+        $data =  Service::create($request->all());
         return Api::setResponse('services', $data);
     }
 
     public function show(Request $request)
     {
-    
-        $company =Company::find($request->id);
+
+        $company = Company::find($request->id);
 
         $data = $company->services;
         return Api::setResponse('services', $data);
     }
+    public function get(Request $request)
+    {
 
+        $data = Company::find($request->api_token);
+
+
+        return Api::setResponse('company', $data);
+    }
 }
