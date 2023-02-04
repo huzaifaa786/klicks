@@ -22,6 +22,10 @@ class Service extends Model
     {
         $this->attributes['image'] = ImageHelper::saveImageFromApi($value, 'images');
     }
+    public function getImageAttribute($value)
+    {
+       return asset($value);
+    }
     public function company(){
         return $this->belongsTo(Company::class);
     }
