@@ -26,8 +26,8 @@ class ServiceController extends Controller
     }
     public function get(Request $request)
     {
-
-        $data = Company::wherre('api_token',$request->api_token)->get();
+        // dd($request->api_token);
+        $data = Company::where('api_token', $request->api_token)->first();
 
 
         return Api::setResponse('company', $data);
