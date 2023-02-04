@@ -27,7 +27,7 @@ class ServiceController extends Controller
     public function get(Request $request)
     {
 
-        $data = Company::find($request->api_token);
+        $data = Company::wherre('api_token',$request->api_token)->get();
 
 
         return Api::setResponse('company', $data);
