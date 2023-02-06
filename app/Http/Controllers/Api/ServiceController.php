@@ -35,12 +35,9 @@ class ServiceController extends Controller
     public function del(Request $request)
     {
 
-        $data = Service:: find($request->id);
-        if ($data != null) {
-            $data->delete();
-            return Api::setResponse('true', true);
-        }
-      
+        $data = Service::find($request->id);
+
+        $data->delete();
 
         return Api::setResponse('true', true);
     }
