@@ -32,4 +32,12 @@ class ServiceController extends Controller
 
         return Api::setResponse('company', $data);
     }
+    public function del(Request $request)
+    {
+        // dd($request->api_token);
+        $data = Service:: find($request->id);
+        $data->delete();
+
+        return Api::setResponse('company', $data);
+    }
 }
