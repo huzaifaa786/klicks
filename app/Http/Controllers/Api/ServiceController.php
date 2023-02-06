@@ -41,4 +41,15 @@ class ServiceController extends Controller
 
         return Api::setResponse('true', true);
     }
+    public function edit(Request $request, )
+    {
+
+
+
+        $data = Service::find($request->id);
+
+        $data->update($request->all());
+        // toastr()->success('update successfully ');
+        return Api::setResponse('company', $data);
+    }
 }
