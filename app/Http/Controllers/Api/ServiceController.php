@@ -34,10 +34,10 @@ class ServiceController extends Controller
     }
     public function del(Request $request)
     {
-        // dd($request->api_token);
+
         $data = Service:: find($request->id);
         $data->delete();
 
-        return Api::setResponse('company', $data);
+        return Api::setResponse('true', true);
     }
 }
