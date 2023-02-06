@@ -36,7 +36,11 @@ class ServiceController extends Controller
     {
 
         $data = Service:: find($request->id);
-        $data->delete();
+        if ($data != null) {
+            $data->delete();
+            return Api::setResponse('true', true);
+        }
+      
 
         return Api::setResponse('true', true);
     }
