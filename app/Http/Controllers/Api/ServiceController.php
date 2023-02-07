@@ -50,6 +50,6 @@ class ServiceController extends Controller
 
         $data->update($request->all());
         // toastr()->success('update successfully ');
-        return Api::setResponse('company', $data);
+        return Api::setResponse('service', $data);
     }
 }
