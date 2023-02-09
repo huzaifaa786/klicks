@@ -35,6 +35,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('companyget', [ServiceController::class, 'get']);
       Route::any('delservice', [ServiceController::class, 'del']);
       Route::any('editservice', [ServiceController::class, 'edit']);
+      Route::any('mall/companys', [CityController::class, 'Mallcompany']);
+
 
 
 });

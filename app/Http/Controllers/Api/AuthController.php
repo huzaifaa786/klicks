@@ -37,7 +37,7 @@ class AuthController extends Controller
 
     public function companylogin(Request $request)
     {
-     
+
 
          $credentials = ApiValidate::login($request, User::class);
         // $credentials = $request->only('email', 'password');
@@ -49,4 +49,5 @@ class AuthController extends Controller
             return Api::setError('Invalid credentials');
         }
     }
+
 }
