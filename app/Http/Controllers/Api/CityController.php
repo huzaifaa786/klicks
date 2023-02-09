@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Mall;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class CityController extends Controller
     }
     public function Mallcompany(Request $request)
     {
-        $data = Mall::where('mall_id',$request->mall_id)->get();
+        $data = Company::where('mall_id',$request->mall_id)->get();
         return Api::setResponse('companys', $data);
     }
 
