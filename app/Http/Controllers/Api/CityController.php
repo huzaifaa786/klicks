@@ -24,6 +24,7 @@ class CityController extends Controller
     public function Mallcompany(Request $request)
     {
         $data = Company::where('mall_id',$request->mall_id)->get();
+        
         return Api::setResponse('companys', $data);
     }
 

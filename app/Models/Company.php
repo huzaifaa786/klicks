@@ -32,12 +32,17 @@ class Company extends Authenticatable
     {
         $this->attributes['image'] = ImageHelper::saveImage($value, 'images');
     }
+    public function getImageAttribute($value)
+    {
+        return asset($value);
+    }
     public function mall()
     {
         return $this->belongsTo(Mall::class);
     }
     public function services()
     {
-      return $this->hasMany(Service::class,'company_id','id');
-}
+        return $this->hasMany(Service::class, 'company_id', 'id');
+    }
+
 }
