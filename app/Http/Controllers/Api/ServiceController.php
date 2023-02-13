@@ -22,6 +22,7 @@ class ServiceController extends Controller
         $company = Company::find($request->id);
 
         $data = $company->services;
+        
         return Api::setResponse('services', $data);
     }
     public function get(Request $request)
