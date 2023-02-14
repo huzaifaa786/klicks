@@ -14,6 +14,7 @@ class OrderController extends Controller
 {
     public function order(Request $request)
     {
+        dd($request);
 
         $order = Order::create($request->all());
        foreach ($request->services as $key => $service) {
