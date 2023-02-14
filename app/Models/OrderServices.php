@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class OrderServices extends Model
 {
     use HasFactory;
-    protected $fillable =['city_id','mall_id','company_id','parking','floor','number_plate','tip','totalpayment'];
+    protected $fillable =['order_id','service_id'];
 }

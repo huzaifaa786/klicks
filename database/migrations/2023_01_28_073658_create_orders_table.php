@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('city_id');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreignId('mall_id');
+            $table->foreign('mall_id')->references('id')->on('malls')->onDelete('cascade');
+            $table->foreignId('company_id');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->string('parking');
+            $table->string('floor');
+            $table->string('numberplate');
+            $table->string('tip');
+            $table->string('totalpayment');
+
             $table->timestamps();
         });
     }

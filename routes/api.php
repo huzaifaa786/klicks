@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('delservice', [ServiceController::class, 'del']);
       Route::any('editservice', [ServiceController::class, 'edit']);
       Route::any('mall/companys', [CityController::class, 'Mallcompany']);
+      Route::any('ordersave', [OrderController::class, 'order']);
 
 
 
