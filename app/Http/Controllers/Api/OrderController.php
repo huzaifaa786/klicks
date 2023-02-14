@@ -14,9 +14,10 @@ class OrderController extends Controller
 {
     public function order(Request $request)
     {
-    
+
 
         $order = Order::create($request->all());
+
        foreach ($request->services as $key => $service) {
         OrderServices::create([
 
@@ -25,10 +26,10 @@ class OrderController extends Controller
         ]);
 
 
-        return Api::setResponse('order', $order);
+
        }
 
-
+       return Api::setResponse('order', $order);
 
 
 
