@@ -23,7 +23,8 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('parking');
             $table->string('floor');
-            $table->string('numberplate');
+            $table->string('cartype');
+            $table->string('number_plate');
             $table->string('tip');
             $table->string('totalpayment');
 
