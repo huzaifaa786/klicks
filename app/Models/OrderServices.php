@@ -12,4 +12,7 @@ class OrderServices extends Model
     public function order(){
         return $this->belongsTo(Order::class);
     }
+    public function service(){
+        return $this->belongsTo(Service::class);
+    }
 }
