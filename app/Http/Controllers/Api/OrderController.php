@@ -37,4 +37,11 @@ class OrderController extends Controller
 
         return Api::setResponse('orders', $order);
     }
+    public function detail(Request $request)
+    {
+        $order = Order::find($request->id)->with('orderservice')->with('mall');
+
+
+        return Api::setResponse('orders', $order);
+    }
 }

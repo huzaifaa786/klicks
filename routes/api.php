@@ -39,7 +39,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('mall/companys', [CityController::class, 'Mallcompany']);
       Route::any('ordersave', [OrderController::class, 'order']);
       Route::any('vendororder', [OrderController::class, 'vendor']);
-
+      Route::any('orderdetail', [OrderController::class, 'detail']);
 
 
 });
