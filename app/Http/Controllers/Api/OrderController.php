@@ -38,7 +38,9 @@ class OrderController extends Controller
         return Api::setResponse('orders', $order);
     }
     public function detail(Request $request)
+
     {
+        dd($request->id);
         $order = Order::find($request->id)->with('orderservice')->with('mall');
 
 
