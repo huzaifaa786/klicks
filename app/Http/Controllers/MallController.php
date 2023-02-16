@@ -28,7 +28,7 @@ class MallController extends Controller
     }
     public function delete($id)
     {
-        dd($id);
+        
         $product = Mall::find($id);
 
         $product->delete();
