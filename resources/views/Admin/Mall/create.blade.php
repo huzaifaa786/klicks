@@ -8,7 +8,7 @@
       <h5 class="card-title">Add Mall</h5>
 
       <!-- Vertical Form -->
-      <form class="row g-3"  method="POST"  action="{{route('save-mall')}}">
+      <form class="row g-3"  method="POST"  action="{{route('save-mall')}}" enctype="multipart/form-data">
         @csrf
         <div class="col-12">
             <label for="inputEmail4" class="form-label">City</label>
