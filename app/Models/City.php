@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
-    protected $fillable =['name'];
+    protected $fillable =['name','image'];
+
+    public function setImageAttribute($value)
+    {
+        $this->attributes['image'] = ImageHelper::saveImage($value, 'images');
+    }
 
     public function mall()
     {

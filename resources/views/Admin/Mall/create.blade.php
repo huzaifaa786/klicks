@@ -25,6 +25,10 @@
           <label for="inputEmail4" class="form-label">Mall Name</label>
           <input type="text" name="name" class="form-control" id="mall">
         </div>
+         <div class="col-12">
+          <label for="inputNanme4" class="form-label">Mall logo</label>
+          <input type="file" class="form-control" id="image" name="image">
+        </div>
 
         <div class="d-flex  justify-content-end">
             <button type="reset" class="btn btn-secondary m-1">Cancel</button>

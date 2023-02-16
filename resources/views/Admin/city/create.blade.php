@@ -14,6 +14,10 @@
           <label for="inputNanme4" class="form-label">City Name</label>
           <input type="text" class="form-control" id="city" name="name">
         </div>
+        <div class="col-12">
+          <label for="inputNanme4" class="form-label">City logo</label>
+          <input type="file" class="form-control" id="image" name="image">
+        </div>
 
         <div class="d-flex  justify-content-end">
             <button type="reset" class="btn btn-secondary m-1">Cancel</button>
@@ -36,6 +40,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">City Name</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Delete City </th>
                     <th scope="col">Edit City </th>
 
@@ -46,6 +51,17 @@
                     <tr>
                         <th>{{ $key + 1 }}</th>
                         <td>{{ $city->name }}</td>
+                        <td>
+                            {{-- {{dd($product->productimage->count())}} --}}
+                            @if ($city->count() > 0)
+                                <a href="{{ asset($city->image) }} " target="blank">
+                                    <img src="{{ asset($city->image) }} "width="50" height="60">
+
+                                </a>
+                            @else
+                                no image avalible
+                            @endif
+                        </td>
                         <td> <button type="button" class="btn btn-danger waves-effect m-r-20 btn-sm delete-btn"
                                 id="{{ $city->id }}" data-bs-toggle="modal"
                                 data-bs-target="#basicModal">Delete</button>
@@ -140,6 +156,7 @@
         $('tbody').on('click', '.edit-btn', function() {
 
             let id = this.id;
+            let image = $(this).attr('image');
             let name = $(this).attr('name');
 
             // let image = $(this).attr('image');
@@ -148,7 +165,7 @@
 
             $('#name').val(name);
 
-            // $('#image').val(image);
+            $('#image').val(image);
 
             $('#updateForm').attr('action', '{{ route('edit-city', '') }}' + '/' + id);
 

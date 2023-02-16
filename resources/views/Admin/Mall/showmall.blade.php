@@ -12,6 +12,7 @@
                         <th scope="col">#</th>
                         <th scope="col">City Name</th>
                         <th scope="col">Mall Name</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Action</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -22,6 +23,17 @@
                             <th>{{ $key + 1 }}</th>
                             <td>{{ $mall->city->name }}</td>
                             <td>{{ $mall->name }}</td>
+                            <td>
+                                {{-- {{dd($product->productimage->count())}} --}}
+                                @if ($mall->count() > 0)
+                                    <a href="{{ asset($mall->image) }} " target="blank">
+                                        <img src="{{ asset($mall->image) }} "width="50" height="60">
+
+                                    </a>
+                                @else
+                                    no image avalible
+                                @endif
+                            </td>
                             <td> <button type="button" class="btn btn-danger waves-effect m-r-20 btn-sm delete-btn"
                                     id="{{ $mall->id }}" data-bs-toggle="modal"
                                     data-bs-target="#basicModal">Delete</button>
@@ -132,13 +144,13 @@
 
                 let name = $(this).attr('name');
 
-                // let image = $(this).attr('image');
+                let image = $(this).attr('image');
 
 
                 $("#city").val(city_id).change();
                 $('#name').val(name);
                 // $('#city_name').val(city_name);
-                // $('#image').val(image);
+                $('#image').val(image);
 
                 $('#updateForm').attr('action', '{{ route('edit-mall', '') }}' + '/' + id);
 
