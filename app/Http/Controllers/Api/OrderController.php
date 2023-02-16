@@ -19,22 +19,22 @@ class OrderController extends Controller
 
         $order = Order::create($request->all());
 
-       foreach ($request->services as $key => $service) {
-        // dd($service);
-        OrderServices::create([
+        foreach ($request->services as $key => $service) {
+            // dd($service);
+            OrderServices::create([
 
-            'order_id' => $order->id,
-            'service_id' => $service
-        ]);
+                'order_id' => $order->id,
+                'service_id' => $service
+            ]);
+        }
+
+        return Api::setResponse('order', $order);
+    }
+    public function vendor(Request $request)
+    {
+        $order = Order::where('company_id', $request->id)->with('mall')->get();
 
 
-
-       }
-
-       return Api::setResponse('order', $order);
-
-
-
-}
-
+        return Api::setResponse('orders', $order);
+    }
 }
