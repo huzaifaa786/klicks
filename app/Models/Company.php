@@ -44,5 +44,9 @@ class Company extends Authenticatable
     {
         return $this->hasMany(Service::class, 'company_id', 'id');
     }
+    public function order()
+    {
+      return $this->hasMany(Order::class);
+    }
 
 }

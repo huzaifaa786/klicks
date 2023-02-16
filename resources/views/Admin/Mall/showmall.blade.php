@@ -121,7 +121,7 @@
 
                 let id = this.id;
 
-                $('#deleteForm').attr('action', '{{ route('delete/city', '') }}' + '/' + id);
+                $('#deleteForm').attr('action', '{{ route('delete/mall', '') }}' + '/' + id);
 
             });
             $('tbody').on('click', '.edit-btn', function() {

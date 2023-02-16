@@ -17,4 +17,8 @@ class Mall extends Model
     {
       return $this->hasMany(Company::class);
 }
+public function order()
+{
+  return $this->hasMany(Order::class);
+}
 }

@@ -17,4 +17,8 @@ class City extends Model
     public static function  name(){
         return (new static)::where('name')->get();
     }
+    public function order()
+    {
+      return $this->hasMany(Order::class);
+    }
 }

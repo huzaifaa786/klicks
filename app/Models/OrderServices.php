@@ -9,4 +9,7 @@ class OrderServices extends Model
 {
     use HasFactory;
     protected $fillable =['order_id','service_id'];
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
 }

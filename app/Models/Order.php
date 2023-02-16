@@ -9,4 +9,19 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable =['city_id','mall_id','company_id','parking','floor','number_plate','cartype','tip','totalpayment'];
+    public function city(){
+        return $this->belongsTo(City::class);
+
+    }
+    public function mall(){
+        return $this->belongsTo(Mall::class);
+    }
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
+    public function orderservice()
+    {
+      return $this->hasMany(OrderServices::class);
+}
+
 }
