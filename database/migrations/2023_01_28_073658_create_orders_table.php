@@ -21,9 +21,12 @@ return new class extends Migration
             $table->foreign('mall_id')->references('id')->on('malls')->onDelete('cascade');
             $table->foreignId('company_id');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('parking');
             $table->string('floor');
-            $table->string('custumer');
+    
+
             $table->string('cartype');
             $table->string('number_plate');
             $table->string('tip');
