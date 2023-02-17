@@ -53,7 +53,7 @@ class AuthController extends Controller
     {
 
 
-        $data = Company::where( 'api_token',$request->api_token)->get();
+        $data = Company::where( 'api_token',$request->api_token)->first();
 
         $data->update($request->password);
         // toastr()->success('update successfully ');
