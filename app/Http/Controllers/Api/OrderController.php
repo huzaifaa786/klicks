@@ -32,7 +32,7 @@ class OrderController extends Controller
     }
     public function vendor(Request $request)
     {
-        $order = Order::where('company_id', $request->id)->with('mall')->with('company')->get();
+        $order = Order::where('company_id', $request->id)->with('mall')->with('company')->with('user')->get();
 
 
         return Api::setResponse('orders', $order);
