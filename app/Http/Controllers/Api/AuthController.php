@@ -52,7 +52,7 @@ class AuthController extends Controller
     public function change(Request $request, )
     {
 
-
+dd($request);
 
         $data = Company::where( 'api_token',$request->api_token)->get();
 
