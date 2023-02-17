@@ -49,13 +49,13 @@ class AuthController extends Controller
             return Api::setError('Invalid credentials');
         }
     }
-    public function change(Request $request, )
+    public function change(Request $request)
     {
-
 
         $data = Company::where( 'api_token',$request->api_token)->first();
 
-        $data->update($request->password);
+        $data->update([
+            'password'=>$request->password]);
         // toastr()->success('update successfully ');
         return Api::setResponse('update', $data);
     }
