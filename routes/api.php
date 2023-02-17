@@ -40,6 +40,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('ordersave', [OrderController::class, 'order']);
       Route::any('vendororder', [OrderController::class, 'vendor']);
       Route::any('orderdetail', [OrderController::class, 'detail']);
-
+      Route::any('changepasword', [AuthController::class, 'change']);
 
 });
