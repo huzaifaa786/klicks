@@ -16,16 +16,19 @@ class OrderController extends Controller
     public function order(Request $request)
     {
 
-
+dd($request);
         $order = Order::create($request->all());
 
-        foreach ($request->services as $key => $service) {
-            // dd($service);
-            OrderServices::create([
+        if ($request->services) {
+            foreach ($request->services as $key => $service) {
+                // dd($service);
+                OrderServices::create([
 
-                'order_id' => $order->id,
-                'service_id' => $service
-            ]);
+                    'order_id' => $order->id,
+                    'service_id' => $service
+                ]);
+            }
+
         }
 
         return Api::setResponse('order', $order);
@@ -41,35 +44,35 @@ class OrderController extends Controller
 
     {
 
-        $order = OrderServices::where('order_id',$request->id)->with('service')->get();
+        $order = OrderServices::where('order_id', $request->id)->with('service')->get();
 
 
         return Api::setResponse('orders', $order);
     }
-    public function accept(Request $request){
+    public function accept(Request $request)
+    {
         $order = Order::find($request->id);
         $order->status = 1;
         $order->save();
         return Api::setResponse('orders', $order);
-
     }
-    public function reject(Request $request){
+    public function reject(Request $request)
+    {
         $order = Order::find($request->id);
         $order->status = 2;
         $order->save();
         return Api::setResponse('orders', $order);
-
     }
-    public function complete(Request $request){
+    public function complete(Request $request)
+    {
         $order = Order::find($request->id);
         $order->status = 3;
         $order->save();
         return Api::setResponse('orders', $order);
-
     }
     public function saleorder(Request $request)
     {
-        $order = Order::where('company_id', $request->id)->where('status',3)->with('user')->get();
+        $order = Order::where('company_id', $request->id)->where('status', 3)->with('user')->get();
 
 
         return Api::setResponse('orders', $order);
