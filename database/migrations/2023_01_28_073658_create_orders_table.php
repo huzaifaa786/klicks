@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('parking');
             $table->string('floor');
-    
+            $table->string('status')->default(0);
 
             $table->string('cartype');
             $table->string('number_plate');

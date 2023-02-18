@@ -46,4 +46,25 @@ class OrderController extends Controller
 
         return Api::setResponse('orders', $order);
     }
+    public function accept(Request $request){
+        $order = Order::find($request->id);
+        $order->status = 1;
+        $order->save();
+        return Api::setResponse('orders', $order);
+
+    }
+    public function reject(Request $request){
+        $order = Order::find($request->id);
+        $order->status = 2;
+        $order->save();
+        return Api::setResponse('orders', $order);
+
+    }
+    public function complete(Request $request){
+        $order = Order::find($request->id);
+        $order->status = 3;
+        $order->save();
+        return Api::setResponse('orders', $order);
+
+    }
 }

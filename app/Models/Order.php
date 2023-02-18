@@ -8,24 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable =['custumer','city_id','mall_id','company_id','user_id','parking','floor','number_plate','cartype','tip','totalpayment'];
-    public function city(){
+    protected $fillable = ['custumer', 'city_id', 'mall_id', 'company_id', 'user_id', 'parking', 'floor', 'number_plate', 'cartype', 'tip', 'totalpayment', 'status'];
+    public function city()
+    {
         return $this->belongsTo(City::class);
-
     }
-    public function mall(){
+    public function mall()
+    {
         return $this->belongsTo(Mall::class);
     }
-    public function company(){
+    public function company()
+    {
         return $this->belongsTo(Company::class);
     }
     public function orderservice()
     {
-      return $this->hasMany(OrderServices::class);
-}
-public function user(){
-    return $this->belongsTo(User::class);
-
-}
-
+        return $this->hasMany(OrderServices::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

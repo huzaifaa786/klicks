@@ -41,5 +41,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('vendororder', [OrderController::class, 'vendor']);
       Route::any('orderdetail', [OrderController::class, 'detail']);
       Route::any('changepasword', [AuthController::class, 'change']);
-
+      Route::any('orderaccept', [OrderController::class, 'accept']);
+      Route::any('orderreject', [OrderController::class, 'reject']);
+      Route::any('ordercomplete', [OrderController::class, 'complete']);
 });
