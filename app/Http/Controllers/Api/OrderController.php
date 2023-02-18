@@ -32,7 +32,7 @@ class OrderController extends Controller
     }
     public function vendor(Request $request)
     {
-        $order = Order::where('company_id', $request->id)->where('status',0  )->orWhere('status',1)->with('mall')->with('company')->with('user')->get();
+        $order = Order::where('company_id', $request->id)->with('mall')->with('company')->with('user')->get();
 
 
         return Api::setResponse('orders', $order);
@@ -66,5 +66,12 @@ class OrderController extends Controller
         $order->save();
         return Api::setResponse('orders', $order);
 
+    }
+    public function saleorder(Request $request)
+    {
+        $order = Order::where('company_id', $request->id)->where('status',3)->with('user')->get();
+
+
+        return Api::setResponse('orders', $order);
     }
 }
