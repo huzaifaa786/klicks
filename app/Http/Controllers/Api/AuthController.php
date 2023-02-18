@@ -66,7 +66,7 @@ class AuthController extends Controller
 
 
         // toastr()->success('update successfully ');
-        return Api::setResponse('comapny', $data);
+        return Api::setResponse('company', $data);
     }
 
 }
