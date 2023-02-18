@@ -59,5 +59,14 @@ class AuthController extends Controller
         // toastr()->success('update successfully ');
         return Api::setResponse('update', $data);
     }
+    public function forget(Request $request)
+    {
+
+        $data = Company::where( 'email',$request->email)->first();
+
+
+        // toastr()->success('update successfully ');
+        return Api::setResponse('comapny', $data);
+    }
 
 }
