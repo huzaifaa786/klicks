@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-         $credentials = ApiValidate::login($request, User::class);
+        $credentials = ApiValidate::login($request, User::class);
         // $credentials = $request->only('email', 'password');
 
         if (Auth::guard('web')->attempt($credentials)) {
@@ -39,7 +39,7 @@ class AuthController extends Controller
     {
 
 
-         $credentials = ApiValidate::login($request, User::class);
+        $credentials = ApiValidate::login($request, User::class);
         // $credentials = $request->only('email', 'password');
 
         if (Auth::guard('company')->attempt($credentials)) {
@@ -52,21 +52,22 @@ class AuthController extends Controller
     public function change(Request $request)
     {
 
-        $data = Company::where( 'api_token',$request->api_token)->first();
+        $data = Company::where('api_token', $request->api_token)->first();
 
         $data->update([
-            'password'=>$request->password]);
+            'password' => $request->password
+        ]);
         // toastr()->success('update successfully ');
         return Api::setResponse('update', $data);
     }
     public function forget(Request $request)
     {
 
-        $data = Company::where( 'email',$request->email)->first();
-
-
-        // toastr()->success('update successfully ');
-        return Api::setResponse('company', $data->withToken());
+        $data = Company::where('email', $request->email)->first();
+        if ($data != null) {
+            return Api::setResponse('company', $data->withToken());
+        } else {
+            return Api::setError('Company not exist on this email');
+        }
     }
-
 }
