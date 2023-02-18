@@ -16,7 +16,6 @@ class OrderController extends Controller
     public function order(Request $request)
     {
 
-dd($request);
         $order = Order::create($request->all());
 
         if ($request->services) {
