@@ -12,9 +12,11 @@
                         <th scope="col">#</th>
                         <th scope="col">Mall Name</th>
                         <th scope="col">Company Name</th>
+                        <th scope="col">Vendor name</th>
                         <th scope="col">Company logo</th>
                         <th scope="col">Company Address</th>
-                        
+                        <th scope="col">Suv Price</th>
+                        <th scope="col">Sedan Price</th>
                         <th scope="col">Action</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -27,6 +29,9 @@
                             <th>{{ $key + 1 }}</th>
                             <td>{{ $company->mall->name }}</td>
                             <td>{{ $company->name }}</td>
+                            <td>{{ $company->username }}</td>
+                            <td>{{ $company->suv_price }}</td>
+                            <td>{{ $company->sedan_price }}</td>
                             <td>
                                 {{-- {{dd($product->productimage->count())}} --}}
                                 @if ($company->count() > 0)
@@ -153,7 +158,7 @@
                 let address = $(this).attr('address');
                 let name = $(this).attr('name');
                 let mall_id = $(this).attr('mall_id');
-
+                let vendor_name = $(this).attr('mall_id');
                 // let image = $(this).attr('image');
 
 
