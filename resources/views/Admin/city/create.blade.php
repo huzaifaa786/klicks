@@ -53,7 +53,7 @@
                         <td>{{ $city->name }}</td>
                         <td>
                             {{-- {{dd($product->productimage->count())}} --}}
-                            @if ($city->image->count() > 0)
+                            @if ($city->image->count()>0)
                                 <a href="{{ asset($city->image) }} " target="blank">
                                     <img src="{{ asset($city->image) }} "width="50" height="60">
 
