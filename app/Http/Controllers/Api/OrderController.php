@@ -27,7 +27,6 @@ class OrderController extends Controller
                     'service_id' => $service
                 ]);
             }
-
         }
 
         return Api::setResponse('order', $order);
