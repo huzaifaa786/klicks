@@ -13,10 +13,11 @@
                         <th scope="col">Mall Name</th>
                         <th scope="col">Company Name</th>
                         <th scope="col">Vendor name</th>
-                        <th scope="col">Company logo</th>
+
                         <th scope="col">Company Address</th>
                         <th scope="col">Suv Price</th>
                         <th scope="col">Sedan Price</th>
+                        <th scope="col">Company logo</th>
                         <th scope="col">Action</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -111,6 +112,21 @@
                             <input type="text" class="form-control" id="address" placeholder="Name" name="address"
                                 required>
                         </div>
+                        <label>UserName</label>
+                        <div class="form-group form-float">
+                            <input type="text" class="form-control" id="username" placeholder="Name" name="username"
+                                required>
+                        </div>
+                        <label>Suv Price</label>
+                        <div class="form-group form-float">
+                            <input type="text" class="form-control" id="suv" placeholder="Name" name="suv_price
+                                required>
+                        </div>
+                        <label>Sedan Price</label>
+                        <div class="form-group form-float">
+                            <input type="text" class="form-control" id="sedan" placeholder="Name" name="sedan_price"
+                                required>
+                        </div>
                         {{-- <label>Name</label>
                         <div class="form-group form-float">
                             <input type="file" class="form-control" id="image" placeholder="Name" name="image"
@@ -158,7 +174,9 @@
                 let address = $(this).attr('address');
                 let name = $(this).attr('name');
                 let mall_id = $(this).attr('mall_id');
-                let vendor_name = $(this).attr('mall_id');
+                let vendor_name = $(this).attr('username');
+                let suv_price = $(this).attr('suv_price');
+                let sedan_price = $(this).attr('sedan_price');
                 // let image = $(this).attr('image');
 
 
@@ -166,6 +184,9 @@
                 $('#name').val(name);
                 $('#address').val(address);
                 $('#image').val(image);
+                $('#username').val(vendor_name);
+                $('#suv').val(suv_price);
+                $('#sedan').val(sedan_price);
 
                 $('#updateForm').attr('action', '{{ route('edit-company', '') }}' + '/' + id);
 
