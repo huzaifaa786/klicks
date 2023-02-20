@@ -14,10 +14,11 @@
                         <th scope="col">Company Name</th>
                         <th scope="col">Vendor name</th>
 
-                        <th scope="col">Company Address</th>
+
                         <th scope="col">Suv Price</th>
                         <th scope="col">Sedan Price</th>
                         <th scope="col">Company logo</th>
+                        <th scope="col">Company Address</th>
                         <th scope="col">Action</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -51,7 +52,10 @@
                             </td>
                             <td> <button type="button" class="btn btn-success m-r-20 btn-sm edit-btn"
                                     id="{{ $company->id }}" mall_id="{{ $company->mall->id }}"
-                                    name="{{ $company->name }}"  image="{{ $company->image }}" address="{{ $company->address }}"  data-bs-toggle="modal"
+                                    name="{{ $company->name }}" image="{{ $company->image }}"
+                                    address="{{ $company->address }}" vendor_name="{{ $company->username }}"
+                                    suv="{{ $company->suv_price }}"
+                                    sedan="{{ $company->sedan_price }}"data-bs-toggle="modal"
                                     data-bs-target="#defaultModal">Edit</button></td>
 
                         </tr>
@@ -119,13 +123,14 @@
                         </div>
                         <label>Suv Price</label>
                         <div class="form-group form-float">
-                            <input type="text" class="form-control" id="suv" placeholder="Name" name="suv_price
-                                required>
+                            <input type="text" class="form-control" id="suv" placeholder="Name"
+                                name="suv_price" required>
                         </div>
+
                         <label>Sedan Price</label>
                         <div class="form-group form-float">
-                            <input type="text" class="form-control" id="sedan" placeholder="Name" name="sedan_price"
-                                required>
+                            <input type="text" class="form-control" id="sedan" placeholder="Name"
+                                name="sedan_price" required>
                         </div>
                         {{-- <label>Name</label>
                         <div class="form-group form-float">
@@ -174,9 +179,9 @@
                 let address = $(this).attr('address');
                 let name = $(this).attr('name');
                 let mall_id = $(this).attr('mall_id');
-                let vendor_name = $(this).attr('username');
-                let suv_price = $(this).attr('suv_price');
-                let sedan_price = $(this).attr('sedan_price');
+                let vendor_name = $(this).attr('vendor_name');
+                let suv_price = $(this).attr('suv');
+                let sedan_price = $(this).attr('sedan');
                 // let image = $(this).attr('image');
 
 
