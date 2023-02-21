@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MallController;
@@ -46,11 +47,12 @@ Route::post('admin/edit/city/{id}', [CityController::class, 'update'])->name('ed
 Route::post('admin/edit/mall/{id}', [MallController::class, 'update'])->name('edit-mall');
 Route::post('admin/edit/company/{id}', [CompanyController::class, 'update'])->name('edit-company');
 Route::view('admin/dashboard','Admin.dashboard')->name('login.dashboard');
-Route::get('admin/order', [OrderController::class, 'shows'])->name('all-order');
+
 //////////////////
 Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
 Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');
 Route::post('company/city', [CompanyController::class, 'showss'])->name('company/city');
 Route::post('admin/save/vendor', [VendorController::class, 'store'])->name('save/vendor');
 Route::view('admin/view/vendor','Admin.vendor.create')->name('admin/vendor');
+Route::get('admin/order', [OrderController::class, 'shows'])->name('all-order');
 });
