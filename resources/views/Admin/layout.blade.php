@@ -324,11 +324,11 @@
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('admin/vendor')}}">
+                        <a href="{{route('admin/order')}}">
                             <i class="bi bi-circle"></i><span>Order</span>
                         </a>
                     </li>
-                   
+
                 </ul>
             </li><!-- End Charts Nav -->
 

@@ -22,7 +22,7 @@ class ServiceController extends Controller
         $company = Company::find($request->id);
 
         $data = $company->services;
-        
+
         return Api::setResponse('services', $data);
     }
     public function get(Request $request)
@@ -50,6 +50,20 @@ class ServiceController extends Controller
         $data = Service::find($request->id);
 
         $data->update($request->all());
+        // toastr()->success('update successfully ');
+        return Api::setResponse('service', $data);
+    }
+    public function changeprice(Request $request, )
+    {
+
+
+
+        $data = Company::find($request->id);
+
+        $data->update([
+            'suv_price' => $request->suv_price,
+            'sedan_price'=> $request->sedan_price
+        ]);
         // toastr()->success('update successfully ');
         return Api::setResponse('service', $data);
     }
