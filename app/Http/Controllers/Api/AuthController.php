@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\Api;
 use App\Helpers\ApiValidate;
 use App\Http\Controllers\Controller;
+use App\Mail\DemoMail;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -69,5 +71,17 @@ class AuthController extends Controller
         } else {
             return Api::setError('Company not exist on this email');
         }
+    }
+    public function index()
+    {
+        
+        $mailData = [
+            'title' => 'Mail from ItSolutionStuff.com',
+            'body' => 'This is for testing email using smtp.'
+        ];
+
+        Mail::to('meharaliaa31@gmail.com')->send(new DemoMail($mailData));
+
+        dd("Email is sent successfully.");
     }
 }

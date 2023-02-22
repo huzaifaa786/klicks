@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\MallController;
+
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,3 +57,4 @@ Route::post('admin/save/vendor', [VendorController::class, 'store'])->name('save
 Route::view('admin/view/vendor','Admin.vendor.create')->name('admin/vendor');
 Route::get('admin/order', [OrderController::class, 'shows'])->name('all-order');
 });
+Route::get('send/mail', [AuthController::class, 'index']);

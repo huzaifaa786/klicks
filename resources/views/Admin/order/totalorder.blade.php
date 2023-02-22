@@ -25,10 +25,10 @@
                             <th>{{ $key + 1 }}</th>
                             <td>{{ $order->city->name }}</td>
                             <td>{{ $order->mall->name }}</td>
-                            <td>{{ $order->company>name }}</td>
+                            <td>{{ $order->company->name }}</td>
                             <td>{{ $order->cartype }}</td>
                             <td>{{ $order->floor }}</td>
-                            <td>{{ $order->plate_number }}</td>
+                            <td>{{ $order->number_plate }}</td>
                             <td>{{ $order->parking}}</td>
 
 
