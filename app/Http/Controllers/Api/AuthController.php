@@ -67,17 +67,26 @@ class AuthController extends Controller
 
         $data = Company::where('email', $request->email)->first();
         if ($data != null) {
-            return Api::setResponse('company', $data->withToken());
+            $otp = random_int(100000, 999999);
+            $mailData = [
+                'title' => 'Klicks-Request Change Password',
+                'name' => $data->name,
+                'otp' => $otp,
+            ];
+
+            Mail::to($request->email)->send(new DemoMail($mailData));
+            return Api::setResponse('otp', $otp);
         } else {
             return Api::setError('Company not exist on this email');
         }
     }
     public function index()
     {
-        
+
         $mailData = [
             'title' => 'Mail from ItSolutionStuff.com',
-            'body' => 'This is for testing email using smtp.'
+            'body' => 'This is for testing email using smtp.  ',
+
         ];
 
         Mail::to('meharaliaa31@gmail.com')->send(new DemoMail($mailData));
