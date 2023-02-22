@@ -74,7 +74,7 @@ class AuthController extends Controller
                 'otp' => $otp,
             ];
 
-            Mail::to($request->email)->send(new DemoMail($mailData));
+            // Mail::to($request->email)->send(new DemoMail($mailData));
             return Api::setResponse('otp', $otp);
         } else {
             return Api::setError('Company not exist on this email');
