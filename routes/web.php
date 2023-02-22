@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
-
+use App\Http\Controllers\MallController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
