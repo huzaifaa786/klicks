@@ -93,4 +93,15 @@ class AuthController extends Controller
 
         dd("Email is sent successfully.");
     }
+    public function forgetpassword(Request $request)
+    {
+
+        $data = Company::where('email', $request->email)->first();
+
+        $data->update([
+            'password' => $request->password
+        ]);
+        // toastr()->success('update successfully ');
+        return Api::setResponse('update', $data);
+    }
 }
