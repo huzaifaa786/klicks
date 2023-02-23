@@ -48,4 +48,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('saleorder', [OrderController::class, 'saleorder']);
       Route::any('changeprice', [ServiceController::class, 'changeprice']);
       Route::any('forget', [AuthController::class, 'forgetpassword']);
+      Route::any('totalsale', [OrderController::class, 'saleofmonth']);
 });
