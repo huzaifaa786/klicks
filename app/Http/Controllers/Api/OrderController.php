@@ -79,6 +79,7 @@ class OrderController extends Controller
     }
     public function saleofmonth(Request $request)
     {
+        dd($request);
         if ($request->date == 'month') {
             $days = Report::MonthlySale($request->month, $request->year);
         }
