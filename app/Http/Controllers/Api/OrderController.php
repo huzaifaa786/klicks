@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helpers\Api;
-use App\Helpers\Report;
+use App\Helpers\Report as HelpersReport;
+use App\Helpers\SaleHelper\Report;
 use App\Http\Controllers\Controller;
 use App\Models\Extra;
 use App\Models\Item;
@@ -80,13 +81,13 @@ class OrderController extends Controller
     public function saleofmonth(Request $request)
     {
         if ($request->date == 'month') {
-            $days = Report::MonthlySale($request->month, $request->year);
+            $days = HelpersReport::MonthlySale($request->month, $request->year);
         }
         if ($request->date == 'week') {
             $week = Carbon::now();
-            $days = Report::weaklySale($request->week);
+            $days = HelpersReport::weaklySale($request->week);
         } else {
-            $days = Report::TwoweaklySale($request->week);
+            $days = HelpersReport::TwoweaklySale($request->week);
         }
         return Api::setResponse('sales', $days);
     }

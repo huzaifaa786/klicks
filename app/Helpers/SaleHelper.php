@@ -2,10 +2,7 @@
 namespace App\Helpers;
 
 use App\Models\Order;
-use App\Models\Purchase;
-use App\Models\Sale;
-use App\Models\Transaction;
-use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use stdClass;
 
 class Report
