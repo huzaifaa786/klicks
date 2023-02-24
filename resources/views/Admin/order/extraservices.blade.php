@@ -15,13 +15,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($services as $key => $service)
+                    @foreach ($services as $key => $order)
                         <tr>
-                            <th>{{ $key + 1 }}</th>
-                            <td> @if ($service->service->count()>0)
+                            {{-- <th>{{ $key + 1 }}</th> --}}
+                            <td> @if ($order->orderservice->service_name->count()>0)
                               {{$service->service_name}}
                             @else
-                                no image avalible
+                                no service avalible
                             @endif</td>
 
 

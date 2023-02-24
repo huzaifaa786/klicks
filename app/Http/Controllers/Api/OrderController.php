@@ -87,13 +87,13 @@ class OrderController extends Controller
 
         if ($request->date == 'month') {
             $days = Report::MonthlySale($request->month, $request->year ,$request->id);
-            $totalSale = Report::totalSale($request->month,$request->year);
+            $totalSale = Report::totalSale($request->month,$request->year,$request->id);
         }
         else if ($request->date == 'week') {
 
             $week = Carbon::now();
-            $days = Report::weaklySale($week);
-            $totalSale = Report::weeklyTotalSale($request->month,$request->year);
+            $days = Report::weaklySale($week,$request->id);
+            $totalSale = Report::weeklyTotalSale($request->month,$request->year,$request->id);
 
         } else {
             $week = Carbon::now();

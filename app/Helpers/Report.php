@@ -26,7 +26,7 @@ class Report
         return $days;
     }
 
-    public static function totalSale($month, $year)
+    public static function totalSale($month, $year,$id)
     {
 
         $start = Carbon::createFromDate($year, $month)->startOfMonth();
@@ -35,12 +35,12 @@ class Report
         $total = 0;
         while ($start <= $end) {
             $clone = clone $start;
-            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
+            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->sum('totalpayment');
             $start->addDay();
         }
         return $total;
     }
-    public static function weeklyTotalSale($week)
+    public static function weeklyTotalSale($week,$id)
     {
         $start = Carbon::parse($week)->startOfWeek();
         $end = Carbon::parse($week)->endOfWeek();
@@ -48,7 +48,7 @@ class Report
         $total = 0;
         while ($start <= $end) {
             $clone = clone $start;
-            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
+            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->sum('totalpayment');
             $start->addDay();
         }
 
@@ -83,7 +83,7 @@ class Report
     }
 
 
-    public static function weaklySale($weak)
+    public static function weaklySale($weak,$id)
     {
         $start = Carbon::parse($weak)->startOfweek();
         $end = Carbon::parse($weak)->endOfweek();
@@ -92,7 +92,7 @@ class Report
             $obj = new stdClass();
             $clone = clone $start;
             $obj->number = $start->day;
-            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfday()])->sum('totalpayment');
+            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfday()])->where('company_id', $id)->sum('totalpayment');
             $days[] = $obj;
             $start->addday();
         }

@@ -30,8 +30,9 @@
                             <td>{{ $order->cartype }}</td>
                             <td>{{ $order->floor }}</td>
                             <td>{{ $order->number_plate }}</td>
-                            <td>{{ $order->parking}}</td>
-<td><a href="{{ url('admine/orders/detail', $order->id) }}" class="btn btn-sm btn-info">Detail</a></td>
+                            <td>{{ $order->parking }}</td>
+                            <td><a href="{{ url('admine/orders/detail', $order->id) }}"
+                                    class="btn btn-sm btn-info">Detail</a></td>
 
 
                         </tr>
@@ -43,5 +44,4 @@
 
         </div>
     </div>
-
 @endsection
