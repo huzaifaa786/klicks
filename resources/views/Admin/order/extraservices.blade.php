@@ -20,7 +20,7 @@
                         <tr>
                             <th>{{ $key + 1 }}</th>
                             <td> @if ($order->orderservice->count()>0)
-                              {{$service->service_name}}
+                              {{$order->service_name}}
                             @else
                                 no service avalible
                             @endif</td>

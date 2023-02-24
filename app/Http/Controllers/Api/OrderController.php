@@ -23,7 +23,7 @@ class OrderController extends Controller
 
         if ($request->services) {
             foreach ($request->services as $key => $service) {
-                // dd($service);
+                dd($service);
                 OrderServices::create([
 
                     'order_id' => $order->id,
