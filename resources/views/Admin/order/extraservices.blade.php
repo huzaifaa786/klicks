@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Mall List</h5>
+            <h5 class="card-title">service List</h5>
 
             <!-- Table with stripped rows -->
             <table id="example" class="datatable" style="width:100%">
@@ -16,9 +16,10 @@
                 </thead>
                 <tbody>
                     @foreach ($services as $key => $order)
+
                         <tr>
-                            {{-- <th>{{ $key + 1 }}</th> --}}
-                            <td> @if ($order->orderservice->service_name->count()>0)
+                            <th>{{ $key + 1 }}</th>
+                            <td> @if ($order->orderservice->count()>0)
                               {{$service->service_name}}
                             @else
                                 no service avalible
