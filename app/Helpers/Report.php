@@ -8,7 +8,7 @@ use stdClass;
 
 class Report
 {
-    public static function MonthlySale($month, $year)
+    public static function MonthlySale($month, $year ,$id)
     {
 
         $start = Carbon::createFromDate($year, $month)->startOfMonth();
@@ -19,13 +19,13 @@ class Report
             $obj = new stdClass();
             $clone = clone $start;
             $obj->date = $start->day;
-            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
+            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->sum('totalpayment');
             $days[] = $obj;
             $start->addDay();
         }
         return $days;
     }
-  
+
     public static function totalSale($month, $year)
     {
 

@@ -84,8 +84,9 @@ class OrderController extends Controller
         $days = [];
         $totalSale = 0;
 
+
         if ($request->date == 'month') {
-            $days = Report::MonthlySale($request->month, $request->year);
+            $days = Report::MonthlySale($request->month, $request->year ,$request->id);
             $totalSale = Report::totalSale($request->month,$request->year);
         }
         else if ($request->date == 'week') {
