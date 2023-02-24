@@ -25,23 +25,7 @@ class Report
         }
         return $days;
     }
-    // }
-    // public static function totalSale($month, ){
-
-    //     $start = Carbon::createFromDate($month)->startOfMonth();
-    //     $end = Carbon::createFromDate($month)->endOfMonth();
-
-    //     $days = [];
-    //     while($start <= $end){
-    //         $obj = new stdClass();
-    //         $clone = clone $start;
-    //         $obj->date = $start->day;
-    //         $obj->amount = Order::whereBetween('created_at',[$start,$clone->endOfDay()])->sum('totalpayment');
-    //         $days[] = $obj;
-    //         $start->addDay();
-    //     }
-    //     return $days;
-    // }
+  
     public static function totalSale($month, $year)
     {
 
@@ -56,6 +40,21 @@ class Report
         }
         return $total;
     }
+    public static function weeklyTotalSale($week)
+    {
+        $start = Carbon::parse($week)->startOfWeek();
+        $end = Carbon::parse($week)->endOfWeek();
+
+        $total = 0;
+        while ($start <= $end) {
+            $clone = clone $start;
+            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
+            $start->addDay();
+        }
+
+        return $total;
+    }
+
 
 
 
@@ -101,21 +100,7 @@ class Report
         return $days;
     }
 
-    // public static function TwoweaklySale($weeksAgo = 0) {
-    //     $start = Carbon::now()->subWeeks((int)$weeksAgo * 2)->startOfWeek();
-    //     $end = Carbon::now()->subWeeks((int)$weeksAgo * 2)->endOfWeek();
-    //     $days = [];
-    //     while($start <= $end) {
-    //         $obj = new stdClass();
-    //         $clone = clone $start;
-    //         $obj->number = $start->day;
-    //         $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
-    //         $days[] = $obj;
-    //         $start->addDay();
-    //     }
 
-    //     return $days;
-    // }
 
 
 
