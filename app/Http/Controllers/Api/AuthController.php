@@ -58,12 +58,12 @@ class AuthController extends Controller
 
         $data = $data->withpassword();
         $previousPassword = $data->password;
-        $new = hash::make($request->password);
+
         // dd($new,$previousPassword);
 
-        if ($new === $previousPassword) {
+        if (Hash::check($request->password,$previousPassword)) {
             $data->update([
-                'password' => $request->password
+                'password' => $request->newpassword
             ]);
             // Passwords match
             return Api::setResponse('update', $data);
