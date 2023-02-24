@@ -50,8 +50,8 @@ class Report
 
 
     public static function weaklySale($weak){
-        $start = Carbon::createFromDate($weak)->startOfweak();
-        $end = Carbon::createFromDate($weak)->endOfweak();
+        $start = Carbon::parse($weak)->startOfweek();
+        $end = Carbon::parse($weak)->endOfweek();
 
         $days = [];
         while($start <= $end){
@@ -65,23 +65,24 @@ class Report
 
         return $days;
     }
-    public static function TwoweaklySale($weak){
-        $start = Carbon::createFromDate($weak)->startOfweak();
-        $end = Carbon::createFromDate($weak)->subDays(14)
-        ();
+ 
+    public static function TwoweaklySale($weeksAgo = 0) {
+        $start = Carbon::now()->subWeeks($weeksAgo)->startOfWeek();
+        $end = Carbon::now()->subWeeks($weeksAgo)->endOfWeek();
 
         $days = [];
-        while($start <= $end){
+        while($start <= $end) {
             $obj = new stdClass();
             $clone = clone $start;
             $obj->number = $start->day;
-            $obj->amount = Order::whereBetween('created_at',[$start,$clone->endOfday()])->sum('totalpayment');
-            $months[] = $obj;
-            $start->addday();
+            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
+            $days[] = $obj;
+            $start->addDay();
         }
 
         return $days;
     }
+
 
 
 

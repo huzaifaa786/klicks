@@ -79,15 +79,17 @@ class OrderController extends Controller
     }
     public function saleofmonth(Request $request)
     {
-        dd($request);
+
         if ($request->date == 'month') {
             $days = Report::MonthlySale($request->month, $request->year);
         }
         if ($request->date == 'week') {
+
             $week = Carbon::now();
-            $days = Report::weaklySale($request->week);
+            $days = Report::weaklySale($week);
         } else {
-            $days = Report::TwoweaklySale($request->week);
+            $week = Carbon::now();
+            $days = Report::TwoweaklySale($week);
         }
         return Api::setResponse('sales', $days);
     }
