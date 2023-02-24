@@ -89,7 +89,7 @@ class OrderController extends Controller
             $days = Report::weaklySale($week);
         } else {
             $week = Carbon::now();
-            $days = Report::TwoweaklySale($week);
+            // $days = Report::TwoweaklySale($week);
         }
         return Api::setResponse('sales', $days);
     }

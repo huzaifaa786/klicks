@@ -65,23 +65,22 @@ class Report
 
         return $days;
     }
- 
-    public static function TwoweaklySale($weeksAgo = 0) {
-        $start = Carbon::now()->subWeeks($weeksAgo)->startOfWeek();
-        $end = Carbon::now()->subWeeks($weeksAgo)->endOfWeek();
 
-        $days = [];
-        while($start <= $end) {
-            $obj = new stdClass();
-            $clone = clone $start;
-            $obj->number = $start->day;
-            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
-            $days[] = $obj;
-            $start->addDay();
-        }
+    // public static function TwoweaklySale($weeksAgo = 0) {
+    //     $start = Carbon::now()->subWeeks((int)$weeksAgo * 2)->startOfWeek();
+    //     $end = Carbon::now()->subWeeks((int)$weeksAgo * 2)->endOfWeek();
+    //     $days = [];
+    //     while($start <= $end) {
+    //         $obj = new stdClass();
+    //         $clone = clone $start;
+    //         $obj->number = $start->day;
+    //         $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->sum('totalpayment');
+    //         $days[] = $obj;
+    //         $start->addDay();
+    //     }
 
-        return $days;
-    }
+    //     return $days;
+    // }
 
 
 
