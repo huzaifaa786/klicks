@@ -72,4 +72,8 @@ trait UserMethods
     {
         return $this->makeVisible(['api_token']);
     }
+    public function withpassword()
+    {
+        return $this->makeVisible(['password']);
+    }
 }

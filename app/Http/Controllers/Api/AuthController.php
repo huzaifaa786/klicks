@@ -54,13 +54,27 @@ class AuthController extends Controller
     public function change(Request $request)
     {
 
-        $data = Company::where('api_token', $request->api_token)->first();
+        $data = Company::where('email', $request->email)->first();
 
-        $data->update([
-            'password' => $request->password
-        ]);
+        $data = $data->withpassword();
+        $previousPassword = $data->password;
+        $new = hash::make($request->password);
+        // dd($new,$previousPassword);
+
+        if ($new === $previousPassword) {
+            $data->update([
+                'password' => $request->password
+            ]);
+            // Passwords match
+            return Api::setResponse('update', $data);
+        } else {
+            // Passwords do not match
+            return Api::setResponse('error', 'Passwords do not match');
+        }
+
+
         // toastr()->success('update successfully ');
-        return Api::setResponse('update', $data);
+
     }
     public function forget(Request $request)
     {
