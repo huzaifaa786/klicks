@@ -12,6 +12,7 @@ use App\Models\OrderServices;
 use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use stdClass;
 
 class OrderController extends Controller
 {
@@ -80,17 +81,27 @@ class OrderController extends Controller
     public function saleofmonth(Request $request)
     {
 
+        $days = [];
+        $totalSale = 0;
+
         if ($request->date == 'month') {
             $days = Report::MonthlySale($request->month, $request->year);
+            $totalSale = Report::totalSale($request->month,$request->year);
         }
-        if ($request->date == 'week') {
+        else if ($request->date == 'week') {
 
             $week = Carbon::now();
             $days = Report::weaklySale($week);
+            $totalSale = Report::totalSale($request->month,$request->year);
+
         } else {
             $week = Carbon::now();
             // $days = Report::TwoweaklySale($week);
         }
-        return Api::setResponse('sales', $days);
+
+        $response = new stdClass;
+        $response->days = $days;
+        $response->totalSale = $totalSale;
+        return response()->json($response);
     }
 }

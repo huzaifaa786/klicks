@@ -61,7 +61,7 @@ class AuthController extends Controller
 
         // dd($new,$previousPassword);
 
-        if (Hash::check($request->password,$previousPassword)) {
+        if (Hash::check($request->password, $previousPassword)) {
             $data->update([
                 'password' => $request->newpassword
             ]);
@@ -69,7 +69,7 @@ class AuthController extends Controller
             return Api::setResponse('update', $data);
         } else {
             // Passwords do not match
-            return Api::setResponse('error', 'Passwords do not match');
+            return Api::setResponse('error', 'Current password incorrect');
         }
 
 
