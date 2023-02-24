@@ -13,4 +13,10 @@ class OrderController extends Controller
         $data = Order::all();
         return view('Admin.order.totalorder', ['orders' => $data]);
     }
+    public function details($id)
+{
+
+    $order = Order::find($id);
+    return view('Admin/order/extraservices', ['services' => $order]);
+}
 }

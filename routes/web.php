@@ -48,7 +48,7 @@ Route::post('admin/edit/city/{id}', [CityController::class, 'update'])->name('ed
 Route::post('admin/edit/mall/{id}', [MallController::class, 'update'])->name('edit-mall');
 Route::post('admin/edit/company/{id}', [CompanyController::class, 'update'])->name('edit-company');
 Route::view('admin/dashboard','Admin.dashboard')->name('login.dashboard');
-
+Route::get('admine/orders/detail/{id}',[OrderController::class, 'detail']);
 //////////////////
 Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
 Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');

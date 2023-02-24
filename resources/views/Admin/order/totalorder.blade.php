@@ -17,6 +17,7 @@
                         <th scope="col">floor number</th>
                         <th scope="col">plate number</th>
                         <th scope="col">parking</th>
+                        <th scope="col">Extra service</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +31,7 @@
                             <td>{{ $order->floor }}</td>
                             <td>{{ $order->number_plate }}</td>
                             <td>{{ $order->parking}}</td>
-
+<td><a href="{{ url('admine/orders/detail', $order->id) }}" class="btn btn-sm btn-info">Detail</a></td>
 
 
                         </tr>
