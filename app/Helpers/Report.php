@@ -91,7 +91,7 @@ class Report
         while ($start <= $end) {
             $obj = new stdClass();
             $clone = clone $start;
-            $obj->number = $start->day;
+            $obj->date = $start->day;
             $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfday()])->where('company_id', $id)->sum('totalpayment');
             $days[] = $obj;
             $start->addday();
