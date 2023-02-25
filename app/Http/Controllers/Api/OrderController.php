@@ -23,7 +23,7 @@ class OrderController extends Controller
 
         if ($request->services) {
             foreach ($request->services as $key => $service) {
-                
+
                 OrderServices::create([
 
                     'order_id' => $order->id,
@@ -85,13 +85,14 @@ class OrderController extends Controller
         $totalSale = 0;
 
 
-        if ($request->date == 'month') {
-            $days = Report::MonthlySale($request->month, $request->year ,$request->id);
-            $totalSale = Report::totalSale($request->month,$request->year,$request->id);
+        if ($request->format == 'month') {
+            $month = Carbon::parse($request->date);
+            $days = Report::MonthlySale($month->month, $request->year ,$request->id);
+            $totalSale = Report::totalSale($month->month,$request->year,$request->id);
         }
         else  {
 
-            $week = Carbon::now();
+            $week = Carbon::parse($request->date);
             $days = Report::weaklySale($week,$request->id);
             $totalSale = Report::weeklyTotalSale($week,$request->id);
 
