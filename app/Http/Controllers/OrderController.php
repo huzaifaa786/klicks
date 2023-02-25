@@ -18,7 +18,8 @@ class OrderController extends Controller
     public function details(Request $request)
 {
 
-    $order =OrderServices:: where('order_id', $request->id)->get();
+
+    $order =OrderServices::where('order_id', $request->id)->with('service')->get();
     return view('Admin/order/extraservices', ['services' => $order]);
 }
 }

@@ -10,25 +10,17 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Service  Name</th>
+                        <th scope="col">Service Name</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($services as $key => $order)
-
+                    @foreach ($services as $key => $service)
                         <tr>
-                            <th>{{ $key + 1 }}</th>
-                            <td> @if ($order->orderservice->count()>0)
-                              {{$order->service_name}}
-                            @else
-                                no service avalible
-                            @endif</td>
-
-
-
-
-                        </tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>
+                                {{ $service->service->service_name }}
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -37,5 +29,4 @@
 
         </div>
     </div>
-
 @endsection

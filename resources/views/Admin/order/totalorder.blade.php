@@ -31,7 +31,7 @@
                             <td>{{ $order->floor }}</td>
                             <td>{{ $order->number_plate }}</td>
                             <td>{{ $order->parking }}</td>
-                            <td><a href="{{ url('admine/orders/detail', $order->id) }}"
+                            <td><a href="{{ URL('admin/orders/detail/' . $order->id) }}"
                                     class="btn btn-sm btn-info">Detail</a></td>
 
 
