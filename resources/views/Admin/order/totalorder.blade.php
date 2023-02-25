@@ -13,6 +13,7 @@
                         <th scope="col">City Name</th>
                         <th scope="col">Mall Name</th>
                         <th scope="col">Company Name</th>
+                        <th scope="col">User Name</th>
                         <th scope="col">Cartype</th>
                         <th scope="col">floor number</th>
                         <th scope="col">plate number</th>
@@ -27,6 +28,7 @@
                             <td>{{ $order->city->name }}</td>
                             <td>{{ $order->mall->name }}</td>
                             <td>{{ $order->company->name }}</td>
+                            <td>{{ $order->user->name }}</td>
                             <td>{{ $order->cartype }}</td>
                             <td>{{ $order->floor }}</td>
                             <td>{{ $order->number_plate }}</td>
