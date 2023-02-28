@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,4 +50,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('changeprice', [ServiceController::class, 'changeprice']);
       Route::any('forget', [AuthController::class, 'forgetpassword']);
       Route::any('totalsale', [OrderController::class, 'saleofmonth']);
+      Route::any('createpaymentIntent', [PaymentController::class, 'createPaymentIntent']);
+
 });
