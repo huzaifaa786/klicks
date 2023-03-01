@@ -118,4 +118,9 @@ class AuthController extends Controller
         // toastr()->success('update successfully ');
         return Api::setResponse('update', $data);
     }
+    public function get(Request $request)
+    {
+        $data = User::where('api_token',$request->api_token)->first();
+        return Api::setResponse('user', $data);
+    }
 }
