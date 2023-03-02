@@ -106,7 +106,7 @@ class OrderController extends Controller
     }
     public function userorder(Request $request)
     {
-        $data = Order::where('id',$request->id)->with('company')->with('mall')->with('user')->first();
+        $data = Order::where('id',$request->id)->with('company')->with('mall')->with('user')->get();
         return Api::setResponse('orders', $data);
     }
 }
