@@ -123,4 +123,5 @@ class AuthController extends Controller
         $data = User::where('api_token',$request->api_token)->first();
         return Api::setResponse('user', $data);
     }
+ 
 }

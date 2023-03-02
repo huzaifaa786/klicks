@@ -10,6 +10,7 @@ use App\Models\Item;
 use App\Models\Order;
 use App\Models\OrderServices;
 use App\Models\Service;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use stdClass;
@@ -102,5 +103,10 @@ class OrderController extends Controller
         $response->days = $days;
         $response->totalSale = $totalSale;
         return response()->json($response);
+    }
+    public function userorder(Request $request)
+    {
+        $data = Order::where('id',$request->id)->with('company')->with('mall')->with('user')->first();
+        return Api::setResponse('orders', $data);
     }
 }

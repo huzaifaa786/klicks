@@ -52,5 +52,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('forget', [AuthController::class, 'forgetpassword']);
       Route::any('totalsale', [OrderController::class, 'saleofmonth']);
       Route::any('createpaymentIntent', [PaymentController::class, 'createPaymentIntent']);
-
+      Route::any('getuserorder', [OrderController::class, 'userorder']);
 });
