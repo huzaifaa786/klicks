@@ -56,5 +56,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::get('send/mail', [AuthController::class, 'index']);
       Route::any('changepasworduser', [AuthController::class, 'changeuserpassword']);
       Route::any('forgetuserpassword', [AuthController::class, 'userforgetpassword']);
-      Route::any('forgetpasword', [AuthController::class, 'forgetchange']);
+      Route::any('forgetchangepassword', [AuthController::class, 'forgetchange']);
 });
