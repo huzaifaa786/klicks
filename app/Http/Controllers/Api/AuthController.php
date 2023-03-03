@@ -153,7 +153,7 @@ class AuthController extends Controller
             Mail::to($request->email)->send(new DemoMail($mailData));
             return Api::setResponse('otp', $otp);
         } else {
-            return Api::setError('Company not exist on this email');
+            return Api::setError('user not exist on this email');
         }
     }
     public function forgetchange(Request $request)

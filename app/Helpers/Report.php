@@ -19,7 +19,7 @@ class Report
             $obj = new stdClass();
             $clone = clone $start;
             $obj->date = $start->day;
-            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->sum('totalpayment');
+            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->where('status', 3)->sum('totalpayment');
             $days[] = $obj;
             $start->addDay();
         }
@@ -35,7 +35,7 @@ class Report
         $total = 0;
         while ($start <= $end) {
             $clone = clone $start;
-            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->sum('totalpayment');
+            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->where('status', 3)->sum('totalpayment');
             $start->addDay();
         }
         return $total;
@@ -48,7 +48,7 @@ class Report
         $total = 0;
         while ($start <= $end) {
             $clone = clone $start;
-            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->sum('totalpayment');
+            $total += Order::whereBetween('created_at', [$start, $clone->endOfDay()])->where('company_id', $id)->where('status', 3)->sum('totalpayment');
             $start->addDay();
         }
 
@@ -92,7 +92,7 @@ class Report
             $obj = new stdClass();
             $clone = clone $start;
             $obj->date = $start->day;
-            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfday()])->where('company_id', $id)->sum('totalpayment');
+            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfday()])->where('company_id', $id)->where('status', 3)->sum('totalpayment');
             $days[] = $obj;
             $start->addday();
         }

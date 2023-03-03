@@ -1,23 +1,22 @@
-
 <?php
 
+namespace App\Http\Controllers;
 
-
-use App\Http\Controllers\Controller;
 use App\Models\Notification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class NotificationController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $notifications = Auth::user()->notifications();
+        $notifications = Auth::user();
         return view('admin.notification.index')->with('notifications',$notifications);
     }
 
@@ -28,7 +27,7 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        $notifications = Auth::user()->notifications();
+        $notifications = Auth::user();
      foreach ($notifications as $key => $notification) {
          $notification->update([
              'read_at' => Carbon::now()
@@ -60,7 +59,7 @@ class NotificationController extends Controller
         $notification->update([
             'read_at' => Carbon::now()
         ]);
-        toastr()->success('Mark Read Successfully','Done');
+        // toastr()->success('Mark Read Successfully','Done');
         return redirect()->back();
     }
 
