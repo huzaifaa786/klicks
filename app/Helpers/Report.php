@@ -64,7 +64,7 @@ class Report
 
 
 
-    public static function YearlySale($year)
+    public static function YearlySale($year,$id)
     {
         $start = Carbon::createFromDate($year)->startOfYear();
         $end = Carbon::createFromDate($year)->endOfYear();
@@ -74,7 +74,7 @@ class Report
             $obj = new stdClass();
             $clone = clone $start;
             $obj->number = $start->month;
-            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfMonth()])->sum('totalpayment');
+            $obj->amount = Order::whereBetween('created_at', [$start, $clone->endOfMonth()])->where('company_id', $id)->where('status', 3)->sum('totalpayment');
             $months[] = $obj;
             $start->addMonth();
         }

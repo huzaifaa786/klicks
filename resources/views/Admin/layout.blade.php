@@ -38,7 +38,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{ route('login.dashboard') }}" class="logo d-flex align-items-center">
                 <img src="{{asset('assets/img/logo.png')}}" alt="">
                 <span class="d-none d-lg-block">Klicks</span>
             </a>
@@ -318,19 +318,19 @@
                 </ul>
             </li><!-- End Tables Nav -->
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-bar-chart"></i><span>Order</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{route('all-order')}}">
+                        <a href="">
                             <i class="bi bi-circle"></i><span>Order</span>
                         </a>
                     </li>
 
                 </ul>
-            </li><!-- End Charts Nav -->
+            </li><!-- End Charts Nav --> --}}
 
             {{-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">

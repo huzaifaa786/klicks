@@ -17,7 +17,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $notifications = Auth::user()->notifications();
+        $notifications = Auth::user();
         return view('admin.notification.index')->with('notifications',$notifications);
     }
 
@@ -28,7 +28,7 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        $notifications = Auth::user()->notifications();
+        $notifications = Auth::user();
      foreach ($notifications as $key => $notification) {
          $notification->update([
              'read_at' => Carbon::now()
@@ -60,7 +60,7 @@ class NotificationController extends Controller
         $notification->update([
             'read_at' => Carbon::now()
         ]);
-        toastr()->success('Mark Read Successfully','Done');
+        // toastr()->success('Mark Read Successfully','Done');
         return redirect()->back();
     }
 

@@ -21,6 +21,8 @@
                         <th scope="col">Company Address</th>
                         <th scope="col">Action</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
 
@@ -46,6 +48,10 @@
                                 @endif
                             </td>
                             <td>{{ $company->address }}</td>
+                            <td><a href="{{ URL('admin/company/order/' . $company->id) }}"
+                                    class="btn btn-sm btn-info">Order</a></td>
+                            <td><a href="{{ URL('admin/company/sale/' . $company->id) }}"
+                                    class="btn btn-sm btn-info">Sale</a></td>
                             <td> <button type="button" class="btn btn-danger waves-effect m-r-20 btn-sm delete-btn"
                                     id="{{ $company->id }}" data-bs-toggle="modal"
                                     data-bs-target="#basicModal">Delete</button>
@@ -118,8 +124,8 @@
                         </div>
                         <label>UserName</label>
                         <div class="form-group form-float">
-                            <input type="text" class="form-control" id="username" placeholder="Name" name="username"
-                                required>
+                            <input type="text" class="form-control" id="username" placeholder="Name"
+                                name="username" required>
                         </div>
                         <label>Suv Price</label>
                         <div class="form-group form-float">

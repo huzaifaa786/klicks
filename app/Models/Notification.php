@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\NotificationHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,4 +19,8 @@ class Notification extends Model
         'user_id',
         'read_at'
     ];
+    public function send()
+    {
+        NotificationHelper::send($this);
+    }
 }

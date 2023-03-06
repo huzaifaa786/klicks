@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helpers\Api;
+use App\Helpers\NotificationHelper;
 use App\Helpers\Report;
 use App\Http\Controllers\Controller;
 use App\Models\Extra;
 use App\Models\Item;
+use App\Models\Notification;
 use App\Models\Order;
 use App\Models\OrderServices;
 use App\Models\Service;
@@ -32,6 +34,14 @@ class OrderController extends Controller
                 ]);
             }
         }
+
+        $notification = Notification::create([
+            // 'rider_id' => '$rider->id',
+            'firebase_token' => 'fqQBgEkZSoeIzsHS3AiY5Z:APA91bHo1soQSiILXdyzIKW5Rwpi1GGhOZ4WIh0cP6Q91cvHXIfqUpu33fC-i7NI__abermI2UJBSp6Bm-QvJl0XOhNtXEAi8nl0ubb12GStT9HrU2T6K7nZ2hg7tuhgfBwZSy5PfiU4',
+            'title' => 'New Order Placed',
+            'body' => 'Click to View',
+        ]);
+        NotificationHelper::send($notification);
 
         return Api::setResponse('order', $order);
     }
