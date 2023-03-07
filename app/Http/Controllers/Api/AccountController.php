@@ -14,4 +14,14 @@ class AccountController extends Controller
        $data= Account::find($request->id);
         return Api::setResponse('account', $data);
     }
+
+    public function add(Request $request)
+    {
+       $data= Account::where('user_id',$request->id)->first();
+       $data->update([
+        'balance' => $request->balance
+    ]);
+
+        return Api::setResponse('account', $data);
+    }
 }

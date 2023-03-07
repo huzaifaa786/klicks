@@ -23,7 +23,7 @@ class PaymentController extends Controller
         ]);
         $intent = $stripe->paymentIntents->create([
             'amount' => $request->price * 100,
-            'currency' => 'GBP',
+            'currency' => 'aed',
             'customer' => $customer->id,
             'automatic_payment_methods' => [
                 'enabled' => true,

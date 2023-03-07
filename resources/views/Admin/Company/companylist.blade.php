@@ -103,8 +103,8 @@
                     <div class="modal-body">
 
                         @csrf
-                        <label>Mall Name</label>
-                        <label for="inputEmail4" class="form-label">City</label>
+                       
+                        <label for="inputEmail4" class="form-label">Mall Name</label>
                         <select id="mall" name="mall_id" class="form-select">
 
                             @foreach (App\Models\Mall::all() as $city)
