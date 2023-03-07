@@ -6,6 +6,7 @@ use App\Helpers\Api;
 use App\Helpers\ApiValidate;
 use App\Http\Controllers\Controller;
 use App\Mail\DemoMail;
+use App\Models\Account;
 use App\Models\Company;
 use App\Models\User;
 use Database\Seeders\UserSeeder;
@@ -34,6 +35,13 @@ class AuthController extends Controller
     {
         $credentials = ApiValidate::register($request, User::class);
         $user = User::find(User::create($credentials)->id);
+
+
+        Account::create([
+
+            'user_id' => $user->id,
+           
+        ]);
         return Api::setResponse('user', $user->withToken());
     }
 

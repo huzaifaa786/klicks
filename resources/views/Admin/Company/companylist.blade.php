@@ -49,7 +49,7 @@
                             </td>
                             <td>{{ $company->address }}</td>
                             <td><a href="{{ URL('admin/company/order/' . $company->id) }}"
-                                    class="btn btn-sm btn-info">Order</a></td>
+                                    class="btn btn-sm btn-primary">Order</a></td>
                             <td><a href="{{ URL('admin/company/sale/' . $company->id) }}"
                                     class="btn btn-sm btn-info">Sale</a></td>
                             <td> <button type="button" class="btn btn-danger waves-effect m-r-20 btn-sm delete-btn"

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\OrderController;
@@ -57,4 +58,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('changepasworduser', [AuthController::class, 'changeuserpassword']);
       Route::any('forgetuserpassword', [AuthController::class, 'userforgetpassword']);
       Route::any('forgetchangepassword', [AuthController::class, 'forgetchange']);
+      Route::any('accountstore', [AccountController::class, 'store']);
+
 });
