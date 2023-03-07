@@ -19,7 +19,7 @@ class AccountController extends Controller
     {
        $data= Account::where('user_id',$request->id)->first();
        $data->update([
-        'balance' => $request->balance
+        'balance' => $request->balance + $data->balance
     ]);
 
         return Api::setResponse('account', $data);
