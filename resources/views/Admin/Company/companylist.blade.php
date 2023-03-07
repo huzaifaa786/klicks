@@ -103,7 +103,7 @@
                     <div class="modal-body">
 
                         @csrf
-                        <label>city Name</label>
+                        <label>Mall Name</label>
                         <label for="inputEmail4" class="form-label">City</label>
                         <select id="mall" name="mall_id" class="form-select">
 
