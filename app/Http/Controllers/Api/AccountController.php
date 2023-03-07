@@ -11,7 +11,7 @@ class AccountController extends Controller
 {
     public function show(Request $request)
     {
-       $data= Account::all();
+       $data= Account::find($request->id);
         return Api::setResponse('account', $data);
     }
 }
