@@ -60,4 +60,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('forgetchangepassword', [AuthController::class, 'forgetchange']);
       Route::any('balanceshow', [AccountController::class, 'show']);
       Route::any('balanceadd', [AccountController::class, 'add']);
+      Route::any('balancesubtract', [AccountController::class, 'subtract']);
 });

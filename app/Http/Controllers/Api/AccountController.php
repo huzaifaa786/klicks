@@ -24,4 +24,13 @@ class AccountController extends Controller
 
         return Api::setResponse('account', $data);
     }
+    public function subtract(Request $request)
+    {
+       $data= Account::where('user_id',$request->id)->first();
+       $data->update([
+        'balance' => $data->balance-$request->balance
+    ]);
+
+        return Api::setResponse('account', $data);
+    }
 }

@@ -51,17 +51,17 @@
                     <tr>
                         <th>{{ $key + 1 }}</th>
                         <td>{{ $city->name }}</td>
-                        <td>
-                            {{-- {{dd($product->productimage->count())}} --}}
-                            @if ($city->image!=null)
-                                <a href="{{ asset($city->image) }} " target="blank">
-                                    <img src="{{ asset($city->image) }} "width="50" height="60">
+                         <td>
+                                {{-- {{dd($product->productimage->count())}} --}}
+                                @if ($city->image!=null)
+                                    <a href="{{ asset($city->image) }} " target="blank">
+                                        <img src="{{ asset($city->image) }} "width="50" height="60">
 
-                                </a>
-                            @else
-                                no image avalible
-                            @endif
-                        </td>
+                                    </a>
+                                @else
+                                    no image avalible
+                                @endif
+                            </td>
                         <td> <button type="button" class="btn btn-danger waves-effect m-r-20 btn-sm delete-btn"
                                 id="{{ $city->id }}" data-bs-toggle="modal"
                                 data-bs-target="#basicModal">Delete</button>

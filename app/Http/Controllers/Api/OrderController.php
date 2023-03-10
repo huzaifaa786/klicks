@@ -37,7 +37,7 @@ class OrderController extends Controller
 
         $notification = Notification::create([
             // 'rider_id' => '$rider->id',
-            'firebase_token' => 'fqQBgEkZSoeIzsHS3AiY5Z:APA91bHo1soQSiILXdyzIKW5Rwpi1GGhOZ4WIh0cP6Q91cvHXIfqUpu33fC-i7NI__abermI2UJBSp6Bm-QvJl0XOhNtXEAi8nl0ubb12GStT9HrU2T6K7nZ2hg7tuhgfBwZSy5PfiU4',
+            'firebase_token' => 'Xlodk4ScErG4BN2uixFY8Ne5kIVriPg8IfzkZwXYYKaKfgUN0mJJWZcbEtFo',
             'title' => 'New Order Placed',
             'body' => 'Click to View',
         ]);
