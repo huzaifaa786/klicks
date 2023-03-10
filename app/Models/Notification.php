@@ -19,8 +19,5 @@ class Notification extends Model
         'user_id',
         'read_at'
     ];
-    public function send()
-    {
-        NotificationHelper::send($this);
-    }
+ 
 }

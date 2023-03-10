@@ -10,7 +10,7 @@ class NotificationHelper
 
     public static function send($object,$token)
     {
-
+dd($token);
         $notification['to'] = $token;
         $notification['notification']['click_action'] = "FLUTTER_NOTIFICATION_CLICK";
         $notification['notification']['title'] = $object->title;

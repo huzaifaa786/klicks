@@ -37,12 +37,15 @@ class OrderController extends Controller
 
         $notification = Notification::create([
             'user_id' => $request->user_id,
-            'firebase_token' => 'Xlodk4ScErG4BN2uixFY8Ne5kIVriPg8IfzkZwXYYKaKfgUN0mJJWZcbEtFo',
+
             'title' => 'New Order Placed',
             'body' => 'Click to View',
         ]);
-        $data=User::find($request->user_id);
+
+        $data=User::find($request->user_id)->withfirebaseToken();
+        dd($data);
         $token=$data->firebase_token;
+        dd($token);
         NotificationHelper::send($notification,$token);
 
         return Api::setResponse('order', $order);

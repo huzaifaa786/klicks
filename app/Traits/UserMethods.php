@@ -76,4 +76,8 @@ trait UserMethods
     {
         return $this->makeVisible(['password']);
     }
+    public function withfirebaseToken()
+    {
+        return $this->makeVisible(['firebase_token']);
+    }
 }
