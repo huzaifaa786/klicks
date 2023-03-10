@@ -43,9 +43,9 @@ class OrderController extends Controller
         ]);
 
         $data=User::find($request->user_id)->withfirebaseToken();
-        dd($data);
+
         $token=$data->firebase_token;
-        dd($token);
+        
         NotificationHelper::send($notification,$token);
 
         return Api::setResponse('order', $order);
