@@ -48,7 +48,7 @@ class OrderController extends Controller
         $data=User::find($request->user_id)->withfirebaseToken();
 
         $token=$data->firebase_token;
-        $company=Company::find($request->comaoany_id);
+        $company=Company::find($request->company_id);
 
         $vendor=$company->firebase_token;
 
