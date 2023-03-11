@@ -6,6 +6,7 @@ use App\Helpers\Api;
 use App\Helpers\NotificationHelper;
 use App\Helpers\Report;
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Models\Extra;
 use App\Models\Item;
 use App\Models\Notification;
@@ -42,14 +43,17 @@ class OrderController extends Controller
             'body' => 'Click to View',
         ]);
 
-        
+
 
         $data=User::find($request->user_id)->withfirebaseToken();
 
         $token=$data->firebase_token;
+        $company=Company::find($request->comaoany_id);
+
+        $vendor=$company->firebase_token;
 
         NotificationHelper::send($notification,$token);
-
+        NotificationHelper::vendor($notification,$vendor);
         return Api::setResponse('order', $order);
     }
     public function vendor(Request $request)
