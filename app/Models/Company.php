@@ -19,7 +19,8 @@ class Company extends Authenticatable
         'password',
         'suv_price',
         'sedan_price',
-        'api_token'
+        'api_token',
+        'firebase_token'
     ];
     protected $hidden = [
         'password',

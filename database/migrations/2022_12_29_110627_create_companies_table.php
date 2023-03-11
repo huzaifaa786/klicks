@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('suv_price');
             $table->string('sedan_price');
             $table->string('api_token');
+            $table->string('firebase_token')->nullable();
 
 
             $table->string('password');

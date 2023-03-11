@@ -25,6 +25,9 @@ class AuthController extends Controller
 
         if (Auth::guard('web')->attempt($credentials)) {
             $user = User::find(Auth::guard('web')->user()->id);
+
+            $user->firebase_token = $request->firebase_token;
+            $user->save();
             return Api::setResponse('user', $user->withToken());
         } else {
             return Api::setError('Invalid credentials');
@@ -40,7 +43,7 @@ class AuthController extends Controller
         Account::create([
 
             'user_id' => $user->id,
-           
+
         ]);
         return Api::setResponse('user', $user->withToken());
     }
@@ -51,14 +54,21 @@ class AuthController extends Controller
 
 
         $credentials = ApiValidate::login($request, User::class);
-        // $credentials = $request->only('email', 'password');
+
 
         if (Auth::guard('company')->attempt($credentials)) {
             $company = Company::find(Auth::guard('company')->user()->id);
+            $company->firebase_token = $request->firebase_token;
+            $company->save();
             return Api::setResponse('company', $company->withToken());
         } else {
             return Api::setError('Invalid credentials');
         }
+        $notification = Company::create([
+            'firebase_token' => $request->firebase_token,
+
+        ]);
+
     }
     public function change(Request $request)
     {

@@ -42,6 +42,8 @@ class OrderController extends Controller
             'body' => 'Click to View',
         ]);
 
+        
+
         $data=User::find($request->user_id)->withfirebaseToken();
 
         $token=$data->firebase_token;
