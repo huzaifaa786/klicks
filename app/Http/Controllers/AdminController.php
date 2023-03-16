@@ -33,5 +33,8 @@ class AdminController extends Controller
             Auth::guard('admin')->logout();
             return redirect()->route('admin/login');
         }
+        public function index(){
+            return view('otp');
+          }
 
 }

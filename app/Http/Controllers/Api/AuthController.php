@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use stdClass;
 
 class AuthController extends Controller
 {
@@ -37,6 +38,9 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $credentials = ApiValidate::register($request, User::class);
+
+
+
         $user = User::find(User::create($credentials)->id);
 
 
@@ -46,6 +50,13 @@ class AuthController extends Controller
 
         ]);
         return Api::setResponse('user', $user->withToken());
+
+
+
+        $response = new stdClass;
+        $response->user = $user->withToken();
+        // $response->otp = $otp;
+        return response()->json($response);
     }
 
 
@@ -185,5 +196,9 @@ class AuthController extends Controller
         // toastr()->success('update successfully ');
         return Api::setResponse('update', $data);
     }
+
+    public function index(){
+        return view('otp');
+      }
 
 }

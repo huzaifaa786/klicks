@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
@@ -61,4 +62,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('balanceshow', [AccountController::class, 'show']);
       Route::any('balanceadd', [AccountController::class, 'add']);
       Route::any('balancesubtract', [AccountController::class, 'subtract']);
+      Route::any('mobileotp', [AdminController::class, 'index']);
 });

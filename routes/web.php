@@ -60,5 +60,6 @@ Route::get('admin/company/order/{id}', [OrderController::class, 'shows']);
 Route::get('admin/company/sale/{id}', [SaleController::class, 'sales']);
 Route::get('admin/company/weekly', [SaleController::class, 'sales']);
 Route::get('admin/company/yearly', [SaleController::class, 'sale']);
+Route::any('mobileotp', [AdminController::class, 'index']);
 });
 
