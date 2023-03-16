@@ -48,12 +48,12 @@ class OrderController extends Controller
         $data=User::find($request->user_id)->withfirebaseToken();
 
         $token=$data->firebase_token;
-        $company=Company::find($request->company_id);
+        // $company=Company::find($request->company_id);
 
-        $vendor=$company->firebase_token;
+        // $vendor=$company->firebase_token;
 
         NotificationHelper::send($notification,$token);
-        NotificationHelper::vendor($notification,$vendor);
+        // NotificationHelper::vendor($notification,$vendor);
         return Api::setResponse('order', $order);
     }
     public function vendor(Request $request)
