@@ -31,8 +31,8 @@ class NotiController extends Controller
 }
 public function getss(Request $request)
 {
-    $notification = Notification::where('user_id', $request->id)
-        
+    $notification = Notification::where('user_id', $request->id)->with('order')
+
         ->orderBy('created_at')
         ->get();
 
