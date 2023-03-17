@@ -63,4 +63,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('balanceadd', [AccountController::class, 'add']);
       Route::any('balancesubtract', [AccountController::class, 'subtract']);
       Route::any('mobileotp', [AdminController::class, 'index']);
+      Route::any('vendernotfion', [AdminController::class, 'get']);
+      Route::any('usernotfion', [AdminController::class, 'index']);
 });

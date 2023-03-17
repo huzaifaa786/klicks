@@ -33,4 +33,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderServices::class);
     }
+
+    public function notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

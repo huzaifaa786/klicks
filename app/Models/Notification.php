@@ -19,5 +19,12 @@ class Notification extends Model
         'user_id',
         'read_at'
     ];
- 
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

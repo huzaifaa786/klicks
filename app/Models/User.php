@@ -58,4 +58,8 @@ public function company()
 {
     return $this->belongsTo(Company::class);
 }
+public function notification()
+{
+  return $this->hasMany(Notification::class);
+}
 }
