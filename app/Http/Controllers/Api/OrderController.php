@@ -74,7 +74,7 @@ class OrderController extends Controller
     }
     public function accept(Request $request)
     {
-        dd($request);
+        
         $order = Order::find($request->id);
         $order->status = 1;
         $order->save();
