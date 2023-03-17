@@ -12,7 +12,7 @@ use Stripe\PaymentIntent;
 class PaymentController extends Controller
 {
     public function createPaymentIntent(Request $request){
-        $stripe = new StripeClient('pk_test_51MlTmPAN8zi2vyFswyWqxxJKbe8NnGRtoOo55Z2P65V8EykUYWk034zKSkXkh2THsQZ6OYZzdoQOUxXmSmPiPz9G00dQnMo69A');
+        $stripe = new StripeClient('sk_test_51MlTmPAN8zi2vyFsoj42hG3Ogz0rbxcPcbMBYhQ0dYurBHb0cpNmoDgcKioY4dkZeG55asSuZIpkKn1Ftyys4kqx00hbq1myWM');
 
         // Use an existing Customer ID if this is a returning customer.
         $customer = $stripe->customers->create();
