@@ -10,7 +10,7 @@ class Notification extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'api_token',
+        'order_id',
         'title',
         'body',
         'sent',

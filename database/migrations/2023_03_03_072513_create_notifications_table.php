@@ -20,7 +20,9 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('api_token')->nullable();
+            $table->string('order_id')->nullable();
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+
             $table->string('title');
             $table->text('body');
             $table->boolean('sent')->default(false);
