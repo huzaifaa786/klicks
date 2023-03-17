@@ -48,12 +48,12 @@ class OrderController extends Controller
         $data=User::find($request->user_id)->withfirebaseToken();
 
         $token=$data->firebase_token;
-        // $company=Company::find($request->company_id);
+        $company=Company::find($request->company_id);
 
-        // $vendor=$company->firebase_token;
+        $vendor=$company->firebase_token;
 
         NotificationHelper::send($notification,$token);
-        // NotificationHelper::vendor($notification,$vendor);
+        NotificationHelper::vendor($notification,$vendor);
         return Api::setResponse('order', $order);
     }
     public function vendor(Request $request)
@@ -77,6 +77,21 @@ class OrderController extends Controller
         $order = Order::find($request->id);
         $order->status = 1;
         $order->save();
+        $notification = Notification::create([
+            'user_id' => $request->user_id,
+            'company_id' => $request->company_id,
+            'title' => 'Your order has been accepted',
+            'body' => 'Click to View',
+        ]);
+
+
+
+        $data=User::find($request->user_id)->withfirebaseToken();
+
+        $token=$data->firebase_token;
+
+        NotificationHelper::send($notification,$token);
+
         return Api::setResponse('orders', $order);
     }
     public function reject(Request $request)
@@ -84,6 +99,21 @@ class OrderController extends Controller
         $order = Order::find($request->id);
         $order->status = 2;
         $order->save();
+        $notification = Notification::create([
+            'user_id' => $request->user_id,
+            'company_id' => $request->company_id,
+            'title' => 'Your order has been rejected',
+            'body' => 'Click to View',
+        ]);
+
+
+
+        $data=User::find($request->user_id)->withfirebaseToken();
+
+        $token=$data->firebase_token;
+
+        NotificationHelper::send($notification,$token);
+
         return Api::setResponse('orders', $order);
     }
     public function complete(Request $request)
@@ -91,6 +121,20 @@ class OrderController extends Controller
         $order = Order::find($request->id);
         $order->status = 3;
         $order->save();
+        $notification = Notification::create([
+            'user_id' => $request->user_id,
+            'company_id' => $request->company_id,
+            'title' => 'Your order has been completed',
+            'body' => 'Click to View',
+        ]);
+
+
+
+        $data=User::find($request->user_id)->withfirebaseToken();
+
+        $token=$data->firebase_token;
+
+        NotificationHelper::send($notification,$token);
         return Api::setResponse('orders', $order);
     }
     public function saleorder(Request $request)
