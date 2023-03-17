@@ -4,9 +4,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\NotiController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\ServiceController;
+
+use App\Http\Controllers\Api\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +66,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
       Route::any('balanceadd', [AccountController::class, 'add']);
       Route::any('balancesubtract', [AccountController::class, 'subtract']);
       Route::any('mobileotp', [AdminController::class, 'index']);
-      Route::any('vendernotfion', [NotificationController::class, 'get']);
-      Route::any('usernotfion', [NotificationController::class, 'index']);
+      Route::any('vendernotfion', [NotiController::class, 'get']);
+      Route::any('usernotfion', [NotiController::class, 'getss']);
 });
