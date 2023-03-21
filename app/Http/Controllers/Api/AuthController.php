@@ -203,7 +203,7 @@ class AuthController extends Controller
       public function otplogin(Request $request)
       {
 
-          $data = Company::where('phone', $request->phone)->first();
+          $data = User::where('phone', $request->phone)->first();
           if ($data != null) {
 
               return Api::setResponse('data', $data);
