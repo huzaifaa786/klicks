@@ -154,7 +154,7 @@
         $('tbody').on('click', '.delete-btn', function() {
 
             let id = this.id;
-            alert(id);
+            
             $('#deleteForm').attr('action', '{{ route('delete/city', '') }}' + '/' + id);
 
         });
