@@ -200,5 +200,18 @@ class AuthController extends Controller
     public function index(){
         return view('otp');
       }
+      public function otplogin(Request $request)
+      {
+
+          $data = Company::where('phone', $request->phone)->first();
+          if ($data != null) {
+
+              return Api::setResponse('data', $data);
+          } else {
+              return Api::setError('User not exist on this number');
+          }
+      }
+
+
 
 }

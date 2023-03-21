@@ -1,23 +1,29 @@
 <?php
 
-// namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api;
 
-// use App\Http\Controllers\Controller;
-// use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Kreait\Firebase\Auth;
+use Kreait\Firebase\Auth\SignInAnonymously;
+use Kreait\Firebase\Auth\SignInWithIdpCredentials;
+use Kreait\Firebase\Contract\Auth as ContractAuth;
+use Kreait\Firebase\Factory;
 
+class OtpController extends Controller
+{
+    // public function sendOTP(Request $request)
+    // {
 
-// class OtpController extends Controller
-// {
-//     public function sendOTP(Request $request)
-//     {
-//         $number = $request->input('number');
+    //     $number = $request->input('number');
 
-//         $factory = (new Factory)->withServiceAccount(__DIR__.'/firebase.json');
-//         $auth = $factory->createAuth();
-//         $recaptchaVerifier = new \Kreait\Firebase\Auth\SignIn\RecaptchaVerifier($request->input('recaptchaToken'));
+    //     $factory = (new Factory)->withServiceAccount(__DIR__.'/klicks-da38d-firebase-adminsdk-6lvbg-9fcd948194.json');
+    //     $auth = $factory->createAuth();
 
-//         $auth->signInWithPhoneNumber($number, $recaptchaVerifier)->confirm();
+    //     $phoneNumber = '+1234567890'; // replace with the phone number to send the OTP to
+    //     $settings = new SignInAnonymously($phoneNumber);
 
-//         return response()->json(['message' => 'OTP sent']);
-//     }
-// }
+    //     $auth->($phoneNumber, $settings);
+    //     return response()->json(['message' => 'OTP sent']);
+    // }
+}
