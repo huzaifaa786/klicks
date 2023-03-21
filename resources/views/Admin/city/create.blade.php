@@ -53,7 +53,7 @@
                         <td>{{ $city->name }}</td>
                          <td>
                                 {{-- {{dd($product->productimage->count())}} --}}
-                                @if ($city->image!=null)
+                                @if ($city->image!='')
                                     <a href="{{ asset($city->image) }} " target="blank">
                                         <img src="{{ asset($city->image) }} "width="50" height="60">
 
@@ -154,7 +154,7 @@
         $('tbody').on('click', '.delete-btn', function() {
 
             let id = this.id;
-            
+
             $('#deleteForm').attr('action', '{{ route('delete/city', '') }}' + '/' + id);
 
         });
