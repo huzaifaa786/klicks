@@ -33,7 +33,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::any('register', [AuthController::class, 'register']);
     Route::any('login', [AuthController::class, 'login']);
     Route::any('companyLogin', [AuthController::class, 'companylogin']);
-
+    Route::any('otplogin', [AuthController::class, 'otplogin']);
     Route::group(['middleware' => 'auth:api'], function () {
 
         Route::any('city/all', [CityController::class, 'allCities']);
@@ -72,7 +72,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
         Route::any('usernotfion', [NotiController::class, 'getss']);
         Route::any('googlelogin', [AuthController::class, 'google']);
         Route::any('facebooklogin', [AuthController::class, 'facebook']);
-        Route::any('otplogin', [AuthController::class, 'otplogin']);
+
 
     });
 });
