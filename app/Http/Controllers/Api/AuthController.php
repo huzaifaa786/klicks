@@ -202,7 +202,7 @@ class AuthController extends Controller
       }
       public function otplogin(Request $request)
       {
-dd($request);
+
           $data = Company::where('phone', $request->phone)->first();
           if ($data != null) {
 
