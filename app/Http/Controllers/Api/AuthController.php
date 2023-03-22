@@ -11,6 +11,7 @@ use App\Models\Company;
 use App\Models\User;
 use Database\Seeders\UserSeeder;
 use Dotenv\Validator;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -207,7 +208,7 @@ class AuthController extends Controller
           $data = User::where('phone', $request->phone)->first();
           if ($data != null) {
 
-              return Api::setResponse('data', $data);
+              return Api::setResponse('data', $data->withToken());
           } else {
               return Api::setError('User not exist on this number');
           }
@@ -247,6 +248,46 @@ class AuthController extends Controller
     //           return response()->json(["message" => 'You can only login via google account'], 400);
     //       }
     //   }
+    // public function redirectToFacebook()
+    // {
+    //     return Socialite::driver('facebook')->redirect();
+    // }
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function handleFacebookCallback()
+    {
+        try {
+
+            $user = user::driver('facebook')->user();
+
+            $finduser = User::where('facebook_id', $user->id)->first();
+
+            if($finduser){
+
+                Auth::login($finduser);
+
+                return redirect()->intended('dashboard');
+
+            }else{
+                $newUser = User::updateOrCreate(['email' => $user->email],[
+                        'name' => $user->name,
+                        'facebook_id'=> $user->id,
+                        'password' => encrypt('123456dummy')
+                    ]);
+
+                Auth::login($newUser);
+
+                return redirect()->intended('dashboard');
+            }
+
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+    }
 
 
 

@@ -52,8 +52,9 @@
                         <th>{{ $key + 1 }}</th>
                         <td>{{ $city->name }}</td>
                          <td>
-                                {{-- {{dd($product->productimage->count())}} --}}
-                                @if ($city->image!='')
+
+                                                            {{-- {{dd( url('/'),$city->image)}} --}}
+                                @if ($city->image!= url('/').'/')
                                     <a href="{{ asset($city->image) }} " target="blank">
                                         <img src="{{ asset($city->image) }} "width="50" height="60">
 
