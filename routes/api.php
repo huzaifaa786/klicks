@@ -34,7 +34,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::any('login', [AuthController::class, 'login']);
     Route::any('companyLogin', [AuthController::class, 'companylogin']);
     Route::any('otplogin', [AuthController::class, 'otplogin']);
-    // Route::group(['middleware' => 'auth:api'], function () {
+    Route::group(['middleware' => 'auth:api'], function () {
 
         Route::any('city/all', [CityController::class, 'allCities']);
         Route::any('city/malls', [CityController::class, 'cityMalls']);
@@ -75,4 +75,4 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
 
 
     });
-// });
+});
