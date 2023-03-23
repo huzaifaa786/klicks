@@ -72,6 +72,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
         Route::any('usernotfion', [NotiController::class, 'getss']);
         Route::any('googlelogin', [AuthController::class, 'google']);
         Route::any('facebooklogin', [AuthController::class, 'facebook']);
+        Route::any('userget', [AuthController::class, 'getuser']);
 
 
     });

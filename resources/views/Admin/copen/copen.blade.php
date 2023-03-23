@@ -22,8 +22,12 @@
         </div>
         <div class="col-12">
           <label for="inputEmail4" class="form-label">Enter Copen</label>
-          <input type="text" name="copen" class="form-control" id="mall">
+          <input type="text" name="copen" class="form-control" id="Copen">
         </div>
+        <div class="col-12">
+            <label for="inputEmail4" class="form-label"> Copen percentage</label>
+            <input type="text" name="percentage" class="form-control" id="percentage">
+          </div>
 
 
         <div class="d-flex  justify-content-end">

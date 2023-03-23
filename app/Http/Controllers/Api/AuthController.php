@@ -289,6 +289,15 @@ class AuthController extends Controller
         }
     }
 
+    public function getuser(Request $request)
+    {
 
+        $data = User::where('email', $request->email)->first();
+        if ($data != null) {
 
+            return Api::setResponse('data', $data->withToken());
+        } else {
+            return Api::setError('User not exist on this email');
+        }
+    }
 }

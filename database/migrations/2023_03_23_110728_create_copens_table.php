@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('company_id');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('copen');
+            $table->string('percentage');
+
             $table->timestamps();
         });
     }

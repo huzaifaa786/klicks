@@ -103,7 +103,7 @@
                     <div class="modal-body">
 
                         @csrf
-                       
+
                         <label for="inputEmail4" class="form-label">Mall Name</label>
                         <select id="mall" name="mall_id" class="form-select">
 
@@ -172,7 +172,7 @@
             $('tbody').on('click', '.delete-btn', function() {
 
                 let id = this.id;
-                alert(id);
+             
                 $('#deleteForm').attr('action', '{{ route('delete/company', '') }}' + '/' + id);
 
             });
