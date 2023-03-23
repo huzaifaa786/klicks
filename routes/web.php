@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CopenController;
 use App\Http\Controllers\MallController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\VendorController;
@@ -61,5 +62,7 @@ Route::get('admin/company/sale/{id}', [SaleController::class, 'sales']);
 Route::get('admin/company/weekly', [SaleController::class, 'sales']);
 Route::get('admin/company/yearly', [SaleController::class, 'sale']);
 Route::any('mobileotp', [AdminController::class, 'index']);
+Route::any('copen', [CopenController::class, 'shows'])->name("companycopen");
+Route::any('copensave', [CopenController::class, 'store'])->name("savecopen");
 });
 
