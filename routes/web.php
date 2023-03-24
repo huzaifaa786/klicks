@@ -51,6 +51,9 @@ Route::post('admin/edit/mall/{id}', [MallController::class, 'update'])->name('ed
 Route::post('admin/edit/company/{id}', [CompanyController::class, 'update'])->name('edit-company');
 Route::view('admin/dashboard','Admin.dashboard')->name('login.dashboard');
 Route::get('admin/orders/detail/{id}',[OrderController::class, 'details']);
+Route::get('admin/delete/copen/{id}', [CopenController::class, 'delete'])->name('delete/copen');
+Route::post('admin/edit/copen/{id}', [CopenController::class, 'update'])->name('edit-copen');
+Route::get('admin/all/copen', [CopenController::class, 'show'])->name('all-copen');
 //////////////////
 Route::get('admin/city', [CityController::class, 'showss'])->name('all/city');
 Route::post('mall/city', [MallController::class, 'showss'])->name('mall/city');

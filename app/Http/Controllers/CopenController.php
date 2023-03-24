@@ -16,8 +16,35 @@ class CopenController extends Controller
     }
     public function store(Request $request)
     {
-        
+
         Copen::create($request->all());
         return redirect()->back();
     }
+    public function delete($id)
+    {
+
+        $product = Copen::find($id);
+
+        $product->delete();
+        // toastr()->success('Delete successfully ');
+        return redirect()->back();
+    }
+    public function update(Request $request, $id)
+    {
+
+
+
+        $city = Copen::find($id);
+
+        $city->update($request->all());
+        // toastr()->success('update successfully ');
+        return redirect()->back();
+    }
+    public function show()
+    {
+
+        $data = Copen::all();
+        return view('Admin.copen.copen', ['copens' => $data]);
+
+}
 }

@@ -49,5 +49,9 @@ class Company extends Authenticatable
     {
       return $this->hasMany(Order::class);
     }
+    public function copen()
+    {
+        return $this->hasMany(Copen::class,);
+    }
 
 }

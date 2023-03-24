@@ -215,7 +215,7 @@
 
                         </li>
 
-                     
+
 
 
 
@@ -293,7 +293,7 @@
                 </ul>
             </li><!-- End Tables Nav -->
 
-            <a class="nav-link collapsed"  href="{{ route('companycopen') }}">
+            <a class="nav-link collapsed"  href="{{ route('all-copen') }}">
                 <i class="bi bi-menu-button-wide"></i><span>Enter Copen</span><i></i>
             </a>
 
