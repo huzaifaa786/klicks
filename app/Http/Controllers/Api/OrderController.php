@@ -74,13 +74,13 @@ class OrderController extends Controller
     }
     public function accept(Request $request)
     {
-        
+
         $order = Order::find($request->id);
         $order->status = 1;
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
-            'company_id' => $request->company_id,
+            // 'company_id' => $request->company_id,
             'title' => 'Your order has been accepted',
             'body' => 'Click to View',
         ]);
@@ -102,7 +102,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
-            'company_id' => $request->company_id,
+            // 'company_id' => $request->company_id,
             'title' => 'Your order has been rejected',
             'body' => 'Click to View',
         ]);
@@ -124,7 +124,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
-            'company_id' => $request->company_id,
+            // 'company_id' => $request->company_id,
             'title' => 'Your order has been completed',
             'body' => 'Click to View',
         ]);

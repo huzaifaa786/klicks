@@ -22,23 +22,22 @@ class NotiController extends Controller
 {
     $notification = Notification::where('company_id', $request->id)
         ->with('user')
-        ->orderBy('created_at')
+        ->orderByDesc('created_at')
         ->get();
 
-    $notification = $notification->sortBy('created_at');
+
 
     return Api::setResponse('notification', $notification);
 }
 public function getss(Request $request)
 {
-    $notification = Notification::where('user_id', $request->id)->with('order')
+    $notification = Notification::where('user_id', $request->id)
+    ->with('order')
+    ->orderByDesc('created_at')
+    ->get();
 
-        ->orderBy('created_at')
-        ->get();
+return Api::setResponse('notification', $notification);
 
-    $notification = $notification->sortBy('created_at');
-
-    return Api::setResponse('notification', $notification);
 }
 
 }
