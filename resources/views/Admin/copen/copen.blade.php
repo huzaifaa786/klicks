@@ -28,6 +28,14 @@
             <label for="inputEmail4" class="form-label"> Copen percentage</label>
             <input type="text" name="percentage" class="form-control" id="percentage">
           </div>
+            <div class="col-12">
+            <label for="inputEmail4" class="form-label"> Copen maximum</label>
+            <input type="text" name="maximum" class="form-control" id="maximum">
+          </div>
+            <div class="col-12">
+            <label for="inputEmail4" class="form-label"> Copen minimum</label>
+            <input type="text" name="minimum" class="form-control" id="minimum">
+          </div>
 
 
         <div class="d-flex  justify-content-end">

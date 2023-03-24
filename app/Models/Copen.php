@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Copen extends Model
 {
     use HasFactory;
-    protected $fillable = ['company_id', 'copen','percentage'];
+    protected $fillable = ['company_id', 'copen','percentage','minimam','maximam'];
 }

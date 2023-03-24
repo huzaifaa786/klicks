@@ -25,9 +25,9 @@ class CompanyController extends Controller
     public function delete($id)
     {
 
-        $product = Company::find($id);
+        $data = Company::find($id);
 
-        $product->delete();
+        $data->delete();
         // toastr()->success('Delete successfully ');
         return redirect()->back();
     }
