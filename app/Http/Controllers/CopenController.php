@@ -31,9 +31,6 @@ class CopenController extends Controller
     }
     public function update(Request $request, $id)
     {
-
-
-
         $city = Copen::find($id);
 
         $city->update($request->all());

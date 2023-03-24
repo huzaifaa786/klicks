@@ -145,7 +145,7 @@
                         </select>
                         <label>Copen</label>
                         <div class="form-group form-float">
-                            <input type="text" class="form-control" id="name" placeholder="Name" name="name"
+                            <input type="text" class="form-control" id="name" placeholder="Name" name="copen"
                                 required>
                         </div>
                         <label>Copen percentage</label>
