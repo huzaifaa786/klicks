@@ -25,7 +25,7 @@
                             <td>{{ $mall->name }}</td>
                             <td>
                                 {{-- {{dd($product->productimage->count())}} --}}
-                                @if ($mall->image!=null)
+                                @if ($mall->image!= url('/').'/')
                                     <a href="{{ asset($mall->image) }} " target="blank">
                                         <img src="{{ asset($mall->image) }} "width="50" height="60">
 
