@@ -20,8 +20,9 @@ class NotiController extends Controller
     // }
     public function get(Request $request)
 {
-    $notification = Notification::where('company_id', $request->id)
-        ->with('user')
+    dd($request->company_id);
+    $notification = Notification::where('company_id', $request->company_id)
+        ->with('user')->with('order')
         ->orderByDesc('created_at')
         ->get();
 
@@ -31,7 +32,7 @@ class NotiController extends Controller
 }
 public function getss(Request $request)
 {
-    $notification = Notification::where('user_id', $request->id)
+    $notification = Notification::where('user_id', $request->user_id)
     ->with('order')
     ->orderByDesc('created_at')
     ->get();
