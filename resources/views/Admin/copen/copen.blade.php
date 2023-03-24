@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Add Copen</h5>
+            <h5 class="card-title">Add Coupon</h5>
 
             <!-- Vertical Form -->
             <form class="row g-3" method="POST" action="{{ route('savecopen') }}" enctype="multipart/form-data">
@@ -20,19 +20,19 @@
 
                 </div>
                 <div class="col-12">
-                    <label for="inputEmail4" class="form-label">Enter Copen</label>
+                    <label for="inputEmail4" class="form-label">Enter Coupon</label>
                     <input type="text" name="copen" class="form-control" id="Copen">
                 </div>
                 <div class="col-12">
-                    <label for="inputEmail4" class="form-label"> Copen percentage</label>
+                    <label for="inputEmail4" class="form-label"> Coupon percentage</label>
                     <input type="text" name="percentage" class="form-control" id="percentage">
                 </div>
                 <div class="col-12">
-                    <label for="inputEmail4" class="form-label"> Copen maximum</label>
+                    <label for="inputEmail4" class="form-label"> Coupon maximum</label>
                     <input type="text" name="maximum" class="form-control" id="maximum">
                 </div>
                 <div class="col-12">
-                    <label for="inputEmail4" class="form-label"> Copen minimum</label>
+                    <label for="inputEmail4" class="form-label"> Coupon minimum</label>
                     <input type="text" name="minimum" class="form-control" id="minimum">
                 </div>
 
@@ -48,7 +48,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">City List</h5>
+            <h5 class="card-title">Coupon List</h5>
 
             <!-- Table with stripped rows -->
             <table id="example" class="datatable" style="width:100%">
@@ -56,8 +56,8 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Company Name</th>
-                        <th scope="col">copen</th>
-                        <th scope="col">Copen percentage </th>
+                        <th scope="col">Coupon</th>
+                        <th scope="col">Coupon percentage </th>
                         <th scope="col">minimum </th>
                         <th scope="col">maximum </th>
                         <th scope="col">Action </th>
@@ -107,7 +107,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete Copen</h5>
+                    <h5 class="modal-title">Delete Coupon</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -128,7 +128,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="title" id="defaultModalLabel">Edit Copen</h4>
+                    <h4 class="title" id="defaultModalLabel">Edit Coupon</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="updateForm" method="POST" enctype="multipart/form-data">
@@ -143,12 +143,12 @@
                                 </option>
                             @endforeach
                         </select>
-                        <label>Copen</label>
+                        <label>Coupon</label>
                         <div class="form-group form-float">
                             <input type="text" class="form-control" id="name" placeholder="Name" name="copen"
                                 required>
                         </div>
-                        <label>Copen percentage</label>
+                        <label>Coupon percentage</label>
                         <div class="form-group form-float">
                             <input type="text" class="form-control" id="copen_percentage" placeholder="Name"
                                 name="percentage" required>
