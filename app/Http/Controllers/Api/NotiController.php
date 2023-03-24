@@ -20,7 +20,7 @@ class NotiController extends Controller
     // }
     public function get(Request $request)
 {
-    dd($request->company_id);
+    
     $notification = Notification::where('company_id', $request->company_id)
         ->with('user')->with('order')
         ->orderByDesc('created_at')
