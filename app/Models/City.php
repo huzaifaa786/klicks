@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
-    protected $fillable =['name','image'];
+    protected $fillable = ['name', 'image'];
 
     public function setImageAttribute($value)
     {
@@ -17,18 +17,22 @@ class City extends Model
     }
     public function getImageAttribute($value)
     {
-        return asset($value);
+        if ($value)
+            return asset($value);
+        else
+            return $value;
     }
 
     public function mall()
     {
-      return $this->hasMany(Mall::class);
+        return $this->hasMany(Mall::class);
     }
-    public static function  name(){
+    public static function  name()
+    {
         return (new static)::where('name')->get();
     }
     public function order()
     {
-      return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class);
     }
 }
