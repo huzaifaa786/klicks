@@ -14,7 +14,7 @@ class Mall extends Model
     {
         $this->attributes['image'] = ImageHelper::saveImage($value, 'images');
     }
-    
+
 
     public function city()
     {
@@ -30,8 +30,12 @@ class Mall extends Model
     }
     public function getImageAttribute($value)
     {
-        return asset($value);
+        if ($value)
+            return asset($value);
+        else
+            return $value;
     }
+
 
     public function notification()
     {
