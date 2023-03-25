@@ -184,7 +184,7 @@ class OrderController extends Controller
 
     {
 
-        $order = Order::where('order_id', $request->order_id)->with('mall')->with('company')->get();
+        $order = Order::find( $request->order_id)->with('mall')->with('company')->get();
 
 
         return Api::setResponse('orders', $order);
