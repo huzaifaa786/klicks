@@ -114,7 +114,7 @@ class OrderController extends Controller
             'user_id' => $request->user_id,
             'order_id' => $request->id,
             // 'company_id' => $request->company_id,
-            'title' => 'Your order has been rejected',
+            'title' => 'Your order has been rejected and order amount was refunded',
             'body' => 'Click to View',
         ]);
 
