@@ -39,7 +39,7 @@ class OrderController extends Controller
         $notification = Notification::create([
             'user_id' => $request->user_id,
             'company_id' => $request->company_id,
-            'order_id' => $request->order_id,
+            'order_id' => $order->id,
             'title' => '1 New Order Placed',
             'body' => 'Click to View',
         ]);
