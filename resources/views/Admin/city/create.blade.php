@@ -52,7 +52,7 @@
                             <td>
 
                                 {{-- {{dd( url('/'),$city->image)}} --}}
-                                @if ($city->image != url('/') . '/')
+                                @if ($city->image != null )
                                     <a href="{{ asset($city->image) }} " target="blank">
                                         <img src="{{ asset($city->image) }} "width="50" height="60">
 
