@@ -68,7 +68,7 @@ class OrderController extends Controller
 
     {
 
-        $order = OrderServices::where('order_id', $request->id)->with('service')->with('mall')->with('company')->get();
+        $order = OrderServices::where('order_id', $request->id)->with('service')->get();
 
 
         return Api::setResponse('orders', $order);
@@ -178,5 +178,15 @@ class OrderController extends Controller
     {
         $data = Order::where('user_id',$request->id)->with('company')->with('mall')->with('user')->get();
         return Api::setResponse('orders', $data);
+    }
+
+    public function notidetail(Request $request)
+
+    {
+
+        $order = OrderServices::where('order_id', $request->id)->with('orderservice')->with('mall')->with('company')->get();
+
+
+        return Api::setResponse('orders', $order);
     }
 }
