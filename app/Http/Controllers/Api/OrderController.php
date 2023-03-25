@@ -39,6 +39,7 @@ class OrderController extends Controller
         $notification = Notification::create([
             'user_id' => $request->user_id,
             'company_id' => $request->company_id,
+            'order_id' => $request->order_id,
             'title' => '1 New Order Placed',
             'body' => 'Click to View',
         ]);
@@ -80,6 +81,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
+            'order_id' => $request->order_id,
             // 'company_id' => $request->company_id,
             'title' => 'Your order has been accepted',
             'body' => 'Click to View',
@@ -102,6 +104,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
+            'order_id' => $request->order_id,
             // 'company_id' => $request->company_id,
             'title' => 'Your order has been rejected',
             'body' => 'Click to View',
@@ -124,6 +127,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
+            'order_id' => $request->order_id,
             // 'company_id' => $request->company_id,
             'title' => 'Your order has been completed',
             'body' => 'Click to View',
