@@ -59,7 +59,7 @@ class OrderController extends Controller
     }
     public function vendor(Request $request)
     {
-        $order = Order::where('company_id', $request->id)->with('mall')->with('company')->with('user')->get();
+        $order = Order::where('company_id', $request->id)->with('mall')->with('company')->with('user')->orderByDesc('created_at')->get();
 
 
         return Api::setResponse('orders', $order);
@@ -81,7 +81,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
-            'order_id' => $request->order_id,
+            'order_id' => $request->id,
             // 'company_id' => $request->company_id,
             'title' => 'Your order has been accepted',
             'body' => 'Click to View',
@@ -104,7 +104,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
-            'order_id' => $request->order_id,
+            'order_id' => $request->id,
             // 'company_id' => $request->company_id,
             'title' => 'Your order has been rejected',
             'body' => 'Click to View',
@@ -127,7 +127,7 @@ class OrderController extends Controller
         $order->save();
         $notification = Notification::create([
             'user_id' => $request->user_id,
-            'order_id' => $request->order_id,
+            'order_id' => $request->id,
             // 'company_id' => $request->company_id,
             'title' => 'Your order has been completed',
             'body' => 'Click to View',
