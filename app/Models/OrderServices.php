@@ -15,4 +15,8 @@ class OrderServices extends Model
     public function service(){
         return $this->belongsTo(Service::class);
     }
+    public function orderservice()
+    {
+        return $this->hasMany(OrderServices::class);
+    }
 }

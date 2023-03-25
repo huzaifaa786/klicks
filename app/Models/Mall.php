@@ -31,4 +31,9 @@ class Mall extends Model
     {
         return asset($value);
     }
+
+    public function notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

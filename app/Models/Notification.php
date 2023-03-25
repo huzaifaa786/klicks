@@ -27,4 +27,12 @@ class Notification extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function mall()
+    {
+        return $this->belongsTo(Mall::class);
+    }
+    public function orderservice()
+    {
+        return $this->belongsTo(OrderServices::class);
+    }
 }
