@@ -11,9 +11,15 @@ class CopenController extends Controller
 {
     public function coupon(Request $request)
     {
-        $order = Copen::where('company_id', $request->company_id)->get();
+        $coupons = Copen::where('company_id', $request->company_id)->get();
 
+        foreach ($coupons as $coupon) {
+            if ($coupon->copen == $request->coupen) {
+                return Api::setResponse('coupon', $coupon);
+            }
+        }
 
-        return Api::setResponse('coupons', $order);
+        return Api::setError('coupon not exist for this company');
     }
+
 }
