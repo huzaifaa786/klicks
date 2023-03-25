@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\CopenController;
 use App\Http\Controllers\Api\NotiController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PaymentController;
@@ -74,6 +75,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
         Route::any('facebooklogin', [AuthController::class, 'facebook']);
         Route::any('userget', [AuthController::class, 'getuser']);
         Route::any('notificationdetail', [OrderController::class, 'notidetail']);
+        Route::any('getcoupon', [CopenController::class, 'coupon']);
 
     });
 // });
