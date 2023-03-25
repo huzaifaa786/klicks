@@ -14,6 +14,6 @@ class CopenController extends Controller
         $order = Copen::where('company_id', $request->id)->get();
 
 
-        return Api::setResponse('orders', $order);
+        return Api::setResponse('coupons', $order);
     }
 }
