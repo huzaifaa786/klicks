@@ -35,8 +35,12 @@ class Company extends Authenticatable
     }
     public function getImageAttribute($value)
     {
-        return asset($value);
+        if ($value)
+            return asset($value);
+        else
+            return $value;
     }
+
     public function mall()
     {
         return $this->belongsTo(Mall::class);
