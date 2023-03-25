@@ -176,7 +176,7 @@ class OrderController extends Controller
     }
     public function userorder(Request $request)
     {
-        $data = Order::where('user_id',$request->id)->with('company')->with('mall')->with('user')->get();
+        $data = Order::where('user_id',$request->id)->with('company')->with('mall')->with('user')->orderByDesc('created_at')->get();
         return Api::setResponse('orders', $data);
     }
 
@@ -184,7 +184,7 @@ class OrderController extends Controller
 
     {
 
-        $order = OrderServices::where('order_id', $request->id)->with('orderservice')->with('mall')->with('company')->get();
+        $order = Order::where('order_id', $request->order_id)->with('mall')->with('company')->get();
 
 
         return Api::setResponse('orders', $order);
