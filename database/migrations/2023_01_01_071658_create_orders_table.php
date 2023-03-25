@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('parking');
             $table->string('floor');
             $table->tinyInteger('status')->default(0);
-
+            $table->string('paymentmethod');
             $table->string('cartype');
             $table->string('number_plate');
             $table->string('tip')->nullable();

@@ -6,6 +6,7 @@ use App\Helpers\Api;
 use App\Helpers\NotificationHelper;
 use App\Helpers\Report;
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use App\Models\Company;
 use App\Models\Extra;
 use App\Models\Item;
@@ -100,8 +101,15 @@ class OrderController extends Controller
     public function reject(Request $request)
     {
         $order = Order::find($request->id);
+
         $order->status = 2;
         $order->save();
+
+        if ($order->paymentmethod === 'wallet') {
+            $user = Account::where('user_id',$request->user_id)->first();
+            $user->balance += $order->totalpayment;
+            $user->save();
+        }
         $notification = Notification::create([
             'user_id' => $request->user_id,
             'order_id' => $request->id,
