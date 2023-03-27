@@ -12,7 +12,7 @@
         @csrf
         <div class="col-12">
             <label for="inputEmail4" class="form-label">City</label>
-                <select id="inputState" name="city_id" class="form-select">
+                <select id="inputState" name="city_id" class="form-select" required>
                   <option selected>Choose...</option>
                   @foreach ($citys as $city)
                   <option value="{{ $city->id }}">{{ $city->name }}
@@ -23,7 +23,7 @@
         </div>
         <div class="col-12">
           <label for="inputEmail4" class="form-label">Mall Name</label>
-          <input type="text" name="name" class="form-control" id="mall">
+          <input type="text" name="name" class="form-control" id="mall" required>
         </div>
          <div class="col-12">
           <label for="inputNanme4" class="form-label">Mall logo</label>

@@ -12,7 +12,7 @@
         @csrf
         <div class="col-12">
             <label for="inputEmail4" class="form-label">Mall</label>
-                <select id="inputState" name="mall_id" class="form-select">
+                <select id="inputState" name="mall_id" class="form-select" required>
                   <option selected>Choose...</option>
                   @foreach ($malls as $mall)
                   <option value="{{ $mall->id }}">{{ $mall->name}}
@@ -23,7 +23,7 @@
         </div>
         <div class="col-12">
           <label for="inputEmail4" class="form-label">Company Name</label>
-          <input type="text" name="name" class="form-control" id="mall">
+          <input type="text" name="name" class="form-control" id="mall" required>
         </div>
         <div class="col-12">
             <label for="inputEmail4" class="form-label">Company logo</label>
@@ -31,31 +31,31 @@
           </div>
           <div class="col-12">
             <label for="inputEmail4" class="form-label">Company Address</label>
-            <input type="text" name="address" class="form-control" id="mall">
+            <input type="text" name="address" class="form-control" id="mall"required>
           </div>
           <div class="col-12">
             <label for="inputNanme4" class="form-label">Vendor Name</label>
-            <input type="text" class="form-control" id="name" name="username">
+            <input type="text" class="form-control" id="name" name="username"required>
           </div>
           <div class="col-12">
               <label for="inputNanme4" class="form-label">vendor Email</label>
-              <input type="text" class="form-control" id="email" name="email">
+              <input type="text" class="form-control" id="email" name="email"required>
             </div>
             <div class="col-12">
               <label for="inputNanme4" class="form-label">vendor Phone</label>
-              <input type="text" class="form-control" id="phone" name="phone">
+              <input type="text" class="form-control" id="phone" name="phone"required>
             </div>
             <div class="col-12">
               <label for="inputNanme4" class="form-label">vendor password</label>
-              <input type="text" class="form-control" id="password" name="password">
+              <input type="text" class="form-control" id="password" name="password" required>
             </div>
               <div class="col-12">
               <label for="inputNanme4" class="form-label">Suv Charges</label>
-              <input type="text" class="form-control" id="suv price" name="suv_price">
+              <input type="text" class="form-control" id="suv price" name="suv_price" required>
             </div>
               <div class="col-12">
               <label for="inputNanme4" class="form-label">Sedan charges</label>
-              <input type="text" class="form-control" id="sedan price" name="sedan_price">
+              <input type="text" class="form-control" id="sedan price" name="sedan_price"required>
             </div>
 
 
