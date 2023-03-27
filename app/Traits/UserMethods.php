@@ -13,8 +13,8 @@ trait UserMethods
         return [
             'name' => 'max:255|required',
             'email' => 'email|required|unique:users',
-            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-            'password_confirmation' => 'min:6'
+            // 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+            // 'password_confirmation' => 'min:6'
 
         ];
     }
@@ -24,8 +24,8 @@ trait UserMethods
         return [
             'name' => 'max:255|required',
             'email' => 'email|required|unique:users',
-            'password' => 'min:6|required',
-            'phone' => 'numeric|required',
+            // 'password' => 'min:6|required',
+            // 'phone' => 'numeric|required',
         ];
     }
 
