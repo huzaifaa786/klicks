@@ -296,15 +296,16 @@ class AuthController extends Controller
         if ($data != null) {
             return Api::setResponse('data', $data->withToken());
         } else {
-            $credentials = ApiValidate::register($request, User::class);
+            return Api::setError('User not exist on this email');
+            // $credentials = ApiValidate::register($request, User::class);
 
 
-            $user = User::create($credentials);
+            // $user = User::create($credentials);
 
 
 
 
-            return Api::setResponse('user', $user->withToken());
+            // return Api::setResponse('user', $user->withToken());
         }
     }
 
