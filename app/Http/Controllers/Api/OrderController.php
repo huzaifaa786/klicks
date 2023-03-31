@@ -43,7 +43,7 @@ class OrderController extends Controller
         }
 
         $notification = Notification::create([
-            'user_id' => $request->user_id,
+            'user_id' => Auth::user()->id,
             'company_id' => $request->company_id,
             'order_id' => $order->id,
             'title' => '1 New Order Placed',
@@ -52,7 +52,7 @@ class OrderController extends Controller
 
 
 
-        $data = User::find($request->user_id)->withfirebaseToken();
+        $data = User::find(Auth::user()->id)->withfirebaseToken();
 
         $token = $data->firebase_token;
         $company = Company::find($request->company_id);
