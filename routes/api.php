@@ -35,7 +35,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::any('login', [AuthController::class, 'login']);
     Route::any('companyLogin', [AuthController::class, 'companylogin']);
     Route::any('otplogin', [AuthController::class, 'otplogin']);
-    // Route::group(['middleware' => 'auth:api'], function () {
 
         Route::any('city/all', [CityController::class, 'allCities']);
         Route::any('city/malls', [CityController::class, 'cityMalls']);
@@ -47,7 +46,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
         Route::any('delservice', [ServiceController::class, 'del']);
         Route::any('editservice', [ServiceController::class, 'edit']);
         Route::any('mall/companys', [CityController::class, 'Mallcompany']);
-        Route::any('ordersave', [OrderController::class, 'order']);
+
         Route::any('vendororder', [OrderController::class, 'vendor']);
         Route::any('orderdetail', [OrderController::class, 'detail']);
         Route::any('changepasword', [AuthController::class, 'change']);
@@ -76,6 +75,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
         Route::any('userget', [AuthController::class, 'getuser']);
         Route::any('notificationdetail', [OrderController::class, 'notidetail']);
         Route::any('getcoupon', [CopenController::class, 'coupon']);
-
-    });
-// });
+        Route::group(['middleware' => 'auth:api'], function () {
+            Route::any('ordersave', [OrderController::class, 'order']);
+        });
+});
