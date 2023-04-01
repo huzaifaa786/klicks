@@ -18,14 +18,19 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use stdClass;
 
 class OrderController extends Controller
 {
     public function order(Request $request)
     {
+        $order = Order::create([
+            'user_id' => Auth::user()->id
+        ] +
+            $request->all(),
 
-        $order = Order::create($request->all());
+        );
 
         if ($request->services) {
             foreach ($request->services as $key => $service) {
@@ -39,7 +44,7 @@ class OrderController extends Controller
         }
 
         $notification = Notification::create([
-            'user_id' => $request->user_id,
+            'user_id' => Auth::user()->id,
             'company_id' => $request->company_id,
             'order_id' => $order->id,
             'title' => '1 New Order Placed',
@@ -48,15 +53,15 @@ class OrderController extends Controller
 
 
 
-        $data=User::find($request->user_id)->withfirebaseToken();
+        $data = User::find(Auth::user()->id)->withfirebaseToken();
 
-        $token=$data->firebase_token;
-        $company=Company::find($request->company_id);
+        $token = $data->firebase_token;
+        $company = Company::find($request->company_id);
 
-        $vendor=$company->firebase_token;
+        $vendor = $company->firebase_token;
 
-        NotificationHelper::send($notification,$token);
-        NotificationHelper::vendor($notification,$vendor);
+        NotificationHelper::send($notification, $token);
+        NotificationHelper::vendor($notification, $vendor);
         return Api::setResponse('order', $order);
     }
     public function vendor(Request $request)
@@ -91,11 +96,11 @@ class OrderController extends Controller
 
 
 
-        $data=User::find($request->user_id)->withfirebaseToken();
+        $data = User::find($request->user_id)->withfirebaseToken();
 
-        $token=$data->firebase_token;
+        $token = $data->firebase_token;
 
-        NotificationHelper::send($notification,$token);
+        NotificationHelper::send($notification, $token);
 
         return Api::setResponse('orders', $order);
     }
@@ -107,7 +112,7 @@ class OrderController extends Controller
         $order->save();
 
         if ($order->paymentmethod === 'wallet') {
-            $user = Account::where('user_id',$request->user_id)->first();
+            $user = Account::where('user_id', $request->user_id)->first();
             $user->balance += $order->totalpayment;
             $user->save();
         }
@@ -121,11 +126,11 @@ class OrderController extends Controller
 
 
 
-        $data=User::find($request->user_id)->withfirebaseToken();
+        $data = User::find($request->user_id)->withfirebaseToken();
 
-        $token=$data->firebase_token;
+        $token = $data->firebase_token;
 
-        NotificationHelper::send($notification,$token);
+        NotificationHelper::send($notification, $token);
 
         return Api::setResponse('orders', $order);
     }
@@ -144,11 +149,11 @@ class OrderController extends Controller
 
 
 
-        $data=User::find($request->user_id)->withfirebaseToken();
+        $data = User::find($request->user_id)->withfirebaseToken();
 
-        $token=$data->firebase_token;
+        $token = $data->firebase_token;
 
-        NotificationHelper::send($notification,$token);
+        NotificationHelper::send($notification, $token);
         return Api::setResponse('orders', $order);
     }
     public function saleorder(Request $request)
@@ -167,15 +172,13 @@ class OrderController extends Controller
 
         if ($request->format == 'month') {
             $month = Carbon::parse($request->date);
-            $days = Report::MonthlySale($month->month, $request->year ,$request->id);
-            $totalSale = Report::totalSale($month->month,$request->year,$request->id);
-        }
-        else  {
+            $days = Report::MonthlySale($month->month, $request->year, $request->id);
+            $totalSale = Report::totalSale($month->month, $request->year, $request->id);
+        } else {
 
             $week = Carbon::parse($request->date);
-            $days = Report::weaklySale($week,$request->id);
-            $totalSale = Report::weeklyTotalSale($week,$request->id);
-
+            $days = Report::weaklySale($week, $request->id);
+            $totalSale = Report::weeklyTotalSale($week, $request->id);
         }
 
         $response = new stdClass;
@@ -185,7 +188,7 @@ class OrderController extends Controller
     }
     public function userorder(Request $request)
     {
-        $data = Order::where('user_id',$request->id)->with('company')->with('mall')->with('user')->orderByDesc('created_at')->get();
+        $data = Order::where('user_id', $request->id)->with('company')->with('mall')->with('user')->orderByDesc('created_at')->get();
         return Api::setResponse('orders', $data);
     }
 
