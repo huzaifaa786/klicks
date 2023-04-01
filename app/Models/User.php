@@ -63,4 +63,8 @@ public function notification()
 {
   return $this->hasMany(Notification::class);
 }
+public function account()
+{
+  return $this->hasOne(Account::class);
+}
 }

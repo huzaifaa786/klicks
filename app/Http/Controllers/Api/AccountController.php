@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
     public function show(Request $request)
     {
-       $data= Account::find($request->id);
+        $user=User::  where('api_token',$request->api_token)->first();
+       $data= Account::where('user_id',$user->id)->first();
         return Api::setResponse('account', $data);
     }
 
