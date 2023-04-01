@@ -16,6 +16,7 @@ use App\Models\OrderServices;
 use App\Models\Service;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -180,7 +181,7 @@ class OrderController extends Controller
         $response = new stdClass;
         $response->days = $days;
         $response->totalSale = $totalSale;
-        return response()->json($response);
+        return Response()->json($response);
     }
     public function userorder(Request $request)
     {
