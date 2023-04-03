@@ -138,11 +138,14 @@
                             <input type="text" class="form-control" id="sedan" placeholder="Name"
                                 name="sedan_price" required>
                         </div>
-                        {{-- <label>Name</label>
+                        <label>Name</label>
                         <div class="form-group form-float">
                             <input type="file" class="form-control" id="image" placeholder="Name" name="image"
-                                required>
-                        </div> --}}
+                                >
+                               
+                        </div>
+                        <br>
+                        <p>if you select new image than change otherwise not change</p>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">SAVE CHANGES</button>
