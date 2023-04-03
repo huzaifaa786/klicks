@@ -197,10 +197,11 @@
                 $("#mall").val(mall_id).change();
                 $('#name').val(name);
                 $('#address').val(address);
-                $('#image').val(image);
+              
                 $('#username').val(vendor_name);
                 $('#suv').val(suv_price);
                 $('#sedan').val(sedan_price);
+                // $('#image').val(image);
 
                 $('#updateForm').attr('action', '{{ route('edit-company', '') }}' + '/' + id);
 
