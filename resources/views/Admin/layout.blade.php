@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
+    <link href="{{asset('assets/img/logo1.png')}}"height="70",width="70">
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -39,7 +39,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('login.dashboard') }}" class="logo d-flex align-items-center">
-                <img src="{{asset('assets/img/logo1.png')}}" alt="" height="90"  width="40">
+                <img src="{{asset('assets/img/logo1.png')}}" alt="" height="90"  width="60">
                 <span class="d-none d-lg-block">Klicks</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
