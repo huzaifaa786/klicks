@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('paymentmethod');
             $table->string('cartype');
             $table->string('number_plate');
-            $table->string('tip')->nullable();
+            $table->string('payment_intent')->nullable();
             $table->string('totalpayment');
 
             $table->timestamps();
