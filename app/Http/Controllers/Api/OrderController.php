@@ -47,7 +47,7 @@ class OrderController extends Controller
             'user_id' => Auth::user()->id,
             'company_id' => $request->company_id,
             'order_id' => $order->id,
-            'title' => '1 New Order Placed',
+            'title' => 'New order placed',
             'body' => 'Click to View',
         ]);
 
