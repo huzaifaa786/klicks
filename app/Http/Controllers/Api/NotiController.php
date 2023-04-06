@@ -61,7 +61,6 @@ class NotiController extends Controller
             $noitification->update([
                 'is_read' => true
             ]);
-            dd($noitification);
             return Api::setMessage('notifcation read');
         }
             return Api::setMessage('notifcation not found');

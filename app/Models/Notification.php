@@ -15,7 +15,7 @@ class Notification extends Model
         'body',
         'sent',
         'company_id',
-
+        'is_read',
         'user_id',
         'read_at'
     ];
