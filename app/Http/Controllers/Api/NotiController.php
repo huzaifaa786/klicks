@@ -57,11 +57,9 @@ class NotiController extends Controller
     public function read(Request $request)
     {
         $noitification = Notification::find($request->notification_id);
-
-        dd( $noitification);
         if($noitification){
             $noitification->update([
-                'read' => true
+                'is_read' => true
             ]);
             return Api::setMessage('notifcation read');
         }
