@@ -53,6 +53,11 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'vendor_api' => [
+            'driver' => 'token',
+            'provider' => 'companies',
+        ],
     ],
 
     /*
@@ -86,6 +91,11 @@ return [
         'companies' => [
             'driver' => 'eloquent',
             'model' => App\Models\Company::class,
+        ],
+
+        'vendors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Vendor::class,
         ],
     ],
 
