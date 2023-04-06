@@ -54,4 +54,15 @@ class NotiController extends Controller
             return Api::setResponse('exist',true);
         return Api::setResponse('exist',false);
     }
+    public function read(Request $request)
+    {
+        $noitification = Notification::find($request->noitication_id);
+        if($noitification){
+            $noitification->update([
+                'read' => true
+            ]);
+            return Api::setMessage('notifcation read');
+        }
+            return Api::setMessage('notifcation not found');
+    }
 }
