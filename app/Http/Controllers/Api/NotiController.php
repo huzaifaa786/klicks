@@ -47,4 +47,11 @@ class NotiController extends Controller
             return Api::setResponse('exist',true);
         return Api::setResponse('exist',false);
     }
+     public function userCheck()
+    {
+        $has_new = Notification::where('user_id',Auth::guard('api')->user()->id)->where('is_read', false)->count();
+        if($has_new > 0)
+            return Api::setResponse('exist',true);
+        return Api::setResponse('exist',false);
+    }
 }

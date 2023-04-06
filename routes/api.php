@@ -78,7 +78,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::any('ordersave', [OrderController::class, 'order']);
         Route::any('balanceshow', [AccountController::class, 'show']);
-        Route::any('check/userNotification',[NotifictionController::class, 'check']);
+        Route::any('check/userNotification',[NotiController::class, 'userCheck']);
     });
     Route::group(['middleware' => 'auth:vendor_api'], function () {
         Route::any('check/vendorNotification',[NotiController::class, 'check']);
