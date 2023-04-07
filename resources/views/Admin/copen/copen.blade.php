@@ -10,7 +10,7 @@
                 @csrf
                 <div class="col-12">
                     <label for="inputEmail4" class="form-label">Company</label>
-                    <select id="inputState" name="company_id" class="form-select">
+                    <select id="inputState" name="company_id" class="form-select" required>
                         <option selected>Choose...</option>
                         @foreach (App\Models\Company::all() as $company)
                             <option value="{{ $company->id }}">{{ $company->name }}
@@ -21,15 +21,15 @@
                 </div>
                 <div class="col-12">
                     <label for="inputEmail4" class="form-label">Enter Coupon</label>
-                    <input type="text" name="copen" class="form-control" id="Copen">
+                    <input type="text" name="copen" class="form-control" id="Copen"required>
                 </div>
                 <div class="col-12">
                     <label for="inputEmail4" class="form-label"> Coupon percentage</label>
-                    <input type="text" name="percentage" class="form-control" id="percentage">
+                    <input type="text" name="percentage" class="form-control" id="percentage"required>
                 </div>
                 <div class="col-12">
                     <label for="inputEmail4" class="form-label"> Coupon maximum</label>
-                    <input type="text" name="maximum" class="form-control" id="maximum">
+                    <input type="text" name="maximum" class="form-control" id="maximum"required>
                 </div>
               
 
@@ -54,7 +54,7 @@
                         <th scope="col">Company Name</th>
                         <th scope="col">Coupon</th>
                         <th scope="col">Coupon percentage </th>
-                        <th scope="col">minimum </th>
+                  
                         <th scope="col">maximum </th>
                         <th scope="col">Action </th>
                         <th scope="col">Action </th>
@@ -70,9 +70,7 @@
                                 {{ $copen->copen }}</td>
                             <td>
                                 {{ $copen->percentage }}</td>
-                            <td>
-                                {{ $copen->minimum }}</td>
-                            <td>
+                            
                                 {{ $copen->maximum }}</td>
 
                             <td> <button type="button" class="btn btn-danger waves-effect m-r-20 btn-sm delete-btn"
@@ -154,11 +152,7 @@
                             <input type="text" class="form-control" id="copen_maximum" placeholder="Name" name="maximum"
                                 required>
                         </div>
-                        <label>Minimum</label>
-                        <div class="form-group form-float">
-                            <input type="text" class="form-control" id="copen_minimum" placeholder="Name" name="minimum"
-                                required>
-                        </div>
+                       
                     </div>
                     <div class="modal-footer">
                         <button type="submit"class="btn btn-success">SAVE CHANGES</button>
@@ -203,7 +197,7 @@
 
                 let maximum = $(this).attr('maximum');
 
-                let minimum = $(this).attr('minimum');
+               
 
 
 
@@ -212,7 +206,7 @@
                 $('#copen_percentage').val(percentage);
                 $('#copen_maximum').val(maximum);
 
-                $('#copen_minimum').val(minimum);
+             
 
                 $('#updateForm').attr('action', '{{ route('edit-copen', '') }}' + '/' + id);
 

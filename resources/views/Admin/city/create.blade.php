@@ -10,7 +10,7 @@
                 @csrf
                 <div class="col-12">
                     <label for="inputNanme4" class="form-label">City Name</label>
-                    <input type="text" class="form-control" id="city" name="name">
+                    <input type="text" class="form-control" id="city" name="name" required>
                 </div>
                 <div class="col-12">
                     <label for="inputNanme4" class="form-label">City logo</label>

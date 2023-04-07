@@ -27,7 +27,7 @@
         </div>
         <div class="col-12">
             <label for="inputEmail4" class="form-label">Company logo</label>
-            <input type="file" name="image" class="form-control" id="mall">
+            <input type="file" name="image" class="form-control" id="mall"required>
           </div>
           <div class="col-12">
             <label for="inputEmail4" class="form-label">Company Address</label>
