@@ -31,11 +31,7 @@
                     <label for="inputEmail4" class="form-label"> Coupon maximum</label>
                     <input type="text" name="maximum" class="form-control" id="maximum">
                 </div>
-                <div class="col-12">
-                    <label for="inputEmail4" class="form-label"> Coupon minimum</label>
-                    <input type="text" name="minimum" class="form-control" id="minimum">
-                </div>
-
+              
 
                 <div class="d-flex  justify-content-end">
                     <button type="reset" class="btn btn-secondary m-1">Cancel</button>
