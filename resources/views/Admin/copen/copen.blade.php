@@ -131,7 +131,7 @@
                         @csrf
                         <label>Company Name</label>
 
-                        <select id="city" name="company_id" class="form-select">
+                        <select id="companyid" name="company_id" class="form-select">
                             @foreach (App\Models\Company::all() as $company)
                                 <option value="{{ $company->id }}">{{ $company->name }}
                                 </option>
@@ -201,7 +201,7 @@
 
 
 
-                $("#company_id").val(company_id).change();
+                $("#companyid").val(company_id).change();
                 $('#name').val(name);
                 $('#copen_percentage').val(percentage);
                 $('#copen_maximum').val(maximum);
