@@ -71,7 +71,7 @@
                             <td>
                                 {{ $copen->percentage }}</td>
                             
-                                {{ $copen->maximum }}</td>
+                               <td> {{ $copen->maximum }}</td>
 
                             <td> <button type="button" class="btn btn-danger waves-effect m-r-20 btn-sm delete-btn"
                                     id="{{ $copen->id }}" data-bs-toggle="modal"
