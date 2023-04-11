@@ -39,6 +39,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+       
         $credentials = ApiValidate::register($request, User::class);
 
 

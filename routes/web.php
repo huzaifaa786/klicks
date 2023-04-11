@@ -62,9 +62,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('admin/view/vendor', 'Admin.vendor.create')->name('admin/vendor');
     Route::get('admin/company/order/{id}', [OrderController::class, 'shows']);
     Route::get('admin/company/sale/{id}', [SaleController::class, 'sales']);
-    Route::get('admin/company/weekly', [SaleController::class, 'sales']);
-    Route::get('admin/company/yearly', [SaleController::class, 'sale']);
+    Route::get('admin/company/weekly', [SaleController::class, 'saless']);
+    Route::get('admin/company/yearly', [SaleController::class, 'yearsales']);
+    Route::get('admin/company/monthly', [SaleController::class, 'sales']);
     Route::any('mobileotp', [AdminController::class, 'index']);
     Route::any('copen', [CopenController::class, 'shows'])->name("companycopen");
     Route::any('copensave', [CopenController::class, 'store'])->name("savecopen");
+    Route::get('admin/company/totalweekly', [SaleController::class, 'weektotal'])->name('total/weekly');
+    Route::get('admin/company/totalyearly', [SaleController::class, 'yearlytotal'])->name('total/yearly');
+    Route::get('admin/company/totalmonthly', [SaleController::class, 'monthlytotal'])->name('total/monthly');
 });
