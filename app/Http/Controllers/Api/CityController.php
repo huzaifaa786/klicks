@@ -31,6 +31,7 @@ class CityController extends Controller
     public function companywithmall(Request $request){
         $company = Company::find($request->company_id);
         $company->mall;
+        $company->mall->city;
         return Api::setResponse('company', $company);
 
     }
