@@ -71,4 +71,6 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/company/totalweekly', [SaleController::class, 'weektotal'])->name('total/weekly');
     Route::get('admin/company/totalyearly', [SaleController::class, 'yearlytotal'])->name('total/yearly');
     Route::get('admin/company/totalmonthly', [SaleController::class, 'monthlytotal'])->name('total/monthly');
+    Route::get('admin/company/all/sales', [SaleController::class, 'allsales'])->name('allsales');
+    Route::get('admin/company/salesall', [SaleController::class, 'companysales'])->name('companysales');
 });
