@@ -28,4 +28,11 @@ class CityController extends Controller
         return Api::setResponse('companys', $data);
     }
 
+    public function companywithmall(Request $request){
+        $company = Company::find($request->company_id);
+        $company->mall;
+        return Api::setResponse('company', $company);
+
+    }
+
 }
