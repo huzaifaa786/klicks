@@ -61,12 +61,12 @@ class SaleController extends Controller
     }
 
     public function allsales(){
-        $sales = Order::where('status', 3)->get();
+        $sales = Order::where('status', 3) ->orderByDesc('created_at')->get();
         return view('Admin.sale.index')->with('sales',$sales);
     }
     
     public function companysales(Request $request){
-        $sales = Order::where('status', 3)->where('company_id',$request->id)->get();
+        $sales = Order::where('status', 3)->where('company_id',$request->id) ->orderByDesc('created_at')->get();
         return view('Admin.sale.index')->with('sales',$sales)->with('id',$request->id);
     }
 }
