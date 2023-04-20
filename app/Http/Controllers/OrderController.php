@@ -12,7 +12,7 @@ class OrderController extends Controller
     public function shows(Request $request)
     {
 
-        $data = Order::where('company_id', $request->id)->with('service')->get();
+        $data = Order::where('company_id', $request->id)->with('service') ->orderByDesc('created_at')->get();
         return view('Admin.order.totalorder', ['orders' => $data]);
     }
     public function details(Request $request)
