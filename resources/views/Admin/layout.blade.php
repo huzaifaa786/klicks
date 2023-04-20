@@ -10,12 +10,14 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/img/logo1.png')}}"height="70",width="70">
+    <link href="{{asset('assets/img/logo1.png')}}" height="70" ,width="70">
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -39,7 +41,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('login.dashboard') }}" class="logo d-flex align-items-center">
-                <img src="{{asset('assets/img/logo1.png')}}" alt="" height="90"  width="60">
+                <img src="{{asset('assets/img/logo1.png')}}" alt="" height="90" width="60">
                 <span class="d-none d-lg-block">Klicks</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -201,7 +203,7 @@
                     </ul><!-- End Messages Dropdown Items -->
 
                 </li><!-- End Messages Nav --> --}}
-{{-- {{dd(auth()->user())}} --}}
+                {{-- {{dd(auth()->user())}} --}}
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -248,13 +250,13 @@
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
-            </li><!-- End Dashboard Nav -->
+            </li>
 
-
-                <a class="nav-link collapsed"  href="{{ route('all-city') }}">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('all-city') }}">
                     <i class="bi bi-menu-button-wide"></i><span>City</span><i></i>
                 </a>
-
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -277,7 +279,8 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-layout-text-window-reverse"></i><span>Company</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Company</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -293,14 +296,14 @@
                 </ul>
             </li><!-- End Tables Nav -->
 
-            <a class="nav-link collapsed"  href="{{ route('all-copen') }}">
+            <a class="nav-link collapsed" href="{{ route('all-copen') }}">
                 <i class="bi bi-menu-button-wide"></i><span>Enter Coupon</span><i></i>
             </a>
 
 
             <!-- End Charts Nav -->
 
-             <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-gem"></i><span>Total sale</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -322,6 +325,13 @@
                     </li>
                 </ul>
             </li><!-- End Icons Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('allsales') }}">
+                    <i class="bi bi-menu-button-wide"></i> <span>All Sales</span>
+                    <i></i>
+                </a>
+            </li>
 
             {{-- <li class="nav-heading">Pages</li>
 
@@ -372,7 +382,7 @@
                     <i class="bi bi-file-earmark"></i>
                     <span>Blank</span>
                 </a>
-            </li><!-- End Blank Page Nav --> --}} 
+            </li><!-- End Blank Page Nav --> --}}
 
         </ul>
 

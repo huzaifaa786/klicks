@@ -76,6 +76,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::any('notificationdetail', [OrderController::class, 'notidetail']);
     Route::any('getcoupon', [CopenController::class, 'coupon']);
     Route::any('read/notifcation',[NotiController::class, 'read']);
+    Route::any('company/mall',[CityController::class, 'companywithmall']);
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::any('ordersave', [OrderController::class, 'order']);

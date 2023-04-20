@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Report;
+use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -57,5 +58,15 @@ class SaleController extends Controller
     {
         $days = Report::totalweaklySale($request->week);
         return view('Admin/totalsale/weeklysale')->with('days', $days);
+    }
+
+    public function allsales(){
+        $sales = Order::where('status', 3)->get();
+        return view('Admin.sale.index')->with('sales',$sales);
+    }
+    
+    public function companysales(Request $request){
+        $sales = Order::where('status', 3)->where('company_id',$request->id)->get();
+        return view('Admin.sale.index')->with('sales',$sales)->with('id',$request->id);
     }
 }
