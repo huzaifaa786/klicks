@@ -333,16 +333,16 @@
                 </a>
             </li>
 
-            {{-- <li class="nav-heading">Pages</li>
+            
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.html">
+                <a class="nav-link collapsed" href="{{ route('show-images') }}">
                     <i class="bi bi-person"></i>
-                    <span>Profile</span>
+                    <span>Slid Images</span>
                 </a>
             </li><!-- End Profile Page Nav -->
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-faq.html">
                     <i class="bi bi-question-circle"></i>
                     <span>F.A.Q</span>
@@ -382,7 +382,7 @@
                     <i class="bi bi-file-earmark"></i>
                     <span>Blank</span>
                 </a>
-            </li><!-- End Blank Page Nav --> --}}
+            </li><!-- End Blank Page Nav -->  --}}
 
         </ul>
 

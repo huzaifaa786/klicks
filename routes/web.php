@@ -8,6 +8,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CopenController;
 use App\Http\Controllers\MallController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SlidController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
@@ -73,4 +74,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/company/totalmonthly', [SaleController::class, 'monthlytotal'])->name('total/monthly');
     Route::get('admin/company/all/sales', [SaleController::class, 'allsales'])->name('allsales');
     Route::get('admin/company/salesall', [SaleController::class, 'companysales'])->name('companysales');
+    Route::view('admin/slidimage', 'Admin.slidimage.slidimage')->name('admin.slidimage');
+    Route::post('admin/save/images', [SlidController::class, 'store'])->name('save-images');
+    Route::get('admin/show/images', [SlidController::class, 'show'])->name('show-images');
+    Route::get('admin/delete/image/{id}', [SlidController::class, 'delete'])->name('delete/image');
+    Route::get('admin/edit/image/{id}', [SlidController::class, 'update'])->name('edit-image');
 });
