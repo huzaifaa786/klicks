@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\ServiceController;
 
 use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\SlidController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -77,6 +78,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::any('getcoupon', [CopenController::class, 'coupon']);
     Route::any('read/notifcation',[NotiController::class, 'read']);
     Route::any('company/mall',[CityController::class, 'companywithmall']);
+    
+    Route::any('slider',[SlidController::class, 'allimages']);
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::any('ordersave', [OrderController::class, 'order']);
