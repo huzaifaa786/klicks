@@ -22,7 +22,21 @@ class Slid extends Model
     {
         $this->attributes['image3'] = ImageHelper::saveImage($value, 'images');
     }
-    public function getImageAttribute($value)
+    public function getImage1Attribute($value)
+    {
+        if ($value)
+            return asset($value);
+        else
+            return $value;
+    }
+    public function getImage2Attribute($value)
+    {
+        if ($value)
+            return asset($value);
+        else
+            return $value;
+    }
+    public function getImage3Attribute($value)
     {
         if ($value)
             return asset($value);
