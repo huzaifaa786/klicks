@@ -36,7 +36,7 @@
 </div>
   <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Coupon List</h5>
+        <h5 class="card-title">Images List</h5>
 
         <!-- Table with stripped rows -->
         <table id="example" class="datatable" style="width:100%">
