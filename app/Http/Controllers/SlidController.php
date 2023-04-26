@@ -28,11 +28,11 @@ class SlidController extends Controller
         // toastr()->success('Delete successfully ');
         return redirect()->back();
     }
-    public function update(Request $request, $id)
+    public function update(Request $request,)
     {
 
-        dd($id,$request->all());
-        $mall = Slid::find($id);
+        // dd($request->file);
+        $mall = Slid::find($request->id);
 
         $mall->update($request->all());
         // toastr()->success('update successfully ');

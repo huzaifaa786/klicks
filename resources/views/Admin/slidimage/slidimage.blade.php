@@ -42,17 +42,17 @@
         <table id="example" class="datatable" style="width:100%">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                 
                     <th scope="col">Image</th>
                     <th scope="col">Action</th>
-                    <th scope="col">Action</th>
+                  
                 </tr>
             </thead>
             <tbody>
                 @foreach ($images as $key => $image)
                     @if ($image->image1 != null)
                         <tr>
-                            <td>{{ $key + 1 }}</td>
+                         
                             <td>
                                 <a href="{{ asset($image->image1) }}" target="blank">
                                     <img src="{{ asset($image->image1) }}" width="50" height="60">
@@ -69,7 +69,7 @@
                     @endif
                     @if ($image->image2 != null)
                         <tr>
-                            <td>{{ $key + 1 }}</td>
+                           
                             <td>
                                 <a href="{{ asset($image->image2) }}" target="blank">
                                     <img src="{{ asset($image->image2) }}" width="50" height="60">
@@ -86,7 +86,7 @@
                     @endif
                     @if ($image->image3 != null)
                         <tr>
-                            <td>{{ $key + 1 }}</td>
+                        
                             <td>
                                 <a href="{{ asset($image->image3) }}" target="blank">
                                     <img src="{{ asset($image->image3) }}" width="50" height="60">
@@ -116,10 +116,11 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabel">Edit Coupon</h4>
+                <h4 class="title" id="defaultModalLabel">Edit images</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="updateForm" method="GET" enctype="multipart/form-data">
+            <form class="row g-3"  method="POST"  action="{{route('edit-image')}}" enctype="multipart/form-data">
+                
                 <div class="modal-body">
 
                     @csrf
@@ -132,13 +133,14 @@
                     <label>image 2</label>
                     <div class="form-group form-float">
                         <input type="file" class="form-control" id="image2" placeholder="image2"
-                            name="percentage" >
+                            name="image2" >
                     </div>
                     <label>image 3</label>
                     <div class="form-group form-float">
                         <input type="file" class="form-control" id="image3" placeholder="Name" name="image3"
                             >
                     </div>
+                    <input type="hidden" id="id" name="id">
                    
                 </div>
                 <div class="modal-footer">
@@ -182,10 +184,11 @@
 
             let image3 = $(this).attr('image3');
 
+            $("#id").val(id);
             $("#image1").val(image1);
             $('#image2').val(image2);
             $('#image3').val(image3);
-            $('#updateForm').attr('action', '{{ route('edit-image', '') }}'+ '/' + id);
+            // $('#updateForm').attr('action', '{{ route('edit-image', '') }}'+ '/' + id);
 
         });
 

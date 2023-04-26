@@ -78,5 +78,5 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('admin/save/images', [SlidController::class, 'store'])->name('save-images');
     Route::get('admin/show/images', [SlidController::class, 'show'])->name('show-images');
     Route::get('admin/delete/image/{id}', [SlidController::class, 'delete'])->name('delete/image');
-    Route::get('admin/edit/image/{id}', [SlidController::class, 'update'])->name('edit-image');
+    Route::post('admin/edit/image', [SlidController::class, 'update'])->name('edit-image');
 });

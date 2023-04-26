@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\CopenController;
+use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\NotiController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PaymentController;
@@ -79,7 +80,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::any('read/notifcation',[NotiController::class, 'read']);
     Route::any('company/mall',[CityController::class, 'companywithmall']);
     
-    Route::any('slider',[SlidController::class, 'allimages']);
+    Route::any('slider/images',[ImageController::class, 'allimages']);
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::any('ordersave', [OrderController::class, 'order']);
