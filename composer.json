@@ -8,7 +8,6 @@
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
-        "kreait/laravel-firebase": "^5.1",
         "laravel/cashier": "^14.8",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
