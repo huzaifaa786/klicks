@@ -18,8 +18,14 @@ class CityController extends Controller
     }
     public function cityMalls(Request $request)
     {
-        $data = Mall::where('city_id', $request->city_id)->get();
-        return Api::setResponse('malls', $data);
+        $cityId = $request->city_id;
+
+        $malls = City::findOrFail($cityId)
+            ->mall()
+            ->hasMany('company')
+
+            ->get();
+        return Api::setResponse('malls', $malls);
     }
     public function Mallcompany(Request $request)
     {
@@ -38,7 +44,5 @@ class CityController extends Controller
         } else {
             return Api::setError('No company record found');
         }
-
     }
-
 }
