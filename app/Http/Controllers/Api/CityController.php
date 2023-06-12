@@ -20,11 +20,7 @@ class CityController extends Controller
     {
         $cityId = $request->city_id;
 
-        $malls = City::findOrFail($cityId)
-            ->mall()
-            ->hasMany('company')
-
-            ->get();
+        $malls = City::findOrFail($cityId)->mall()->hasMany('company')->get();
         return Api::setResponse('malls', $malls);
     }
     public function Mallcompany(Request $request)
